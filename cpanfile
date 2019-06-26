@@ -11,4 +11,5 @@ requires 'namespace::clean';
 on 'test' => sub {
   requires 'Test::More';
   requires 'Test::RequiresInternet';
+  requires 'Test::Pod';
 };

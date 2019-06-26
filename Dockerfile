@@ -12,6 +12,5 @@ COPY cpanfile* /opt/swift/
 
 RUN carton install --deployment || (cat /home/cihm/.cpanm/work/*/build.log && exit 1)
 
-COPY bin /opt/swift/bin
 COPY lib /opt/swift/lib
 COPY t /opt/swift/t
