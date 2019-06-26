@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  cihm-swift:
+    build: .
+    depends_on:
+      - pico
+    command: ["carton", "exec", "prove", "-rl", "t"]
+    environment:
+      - DOCKER_TEST=1
+      - SWIFTSTACK_HOST=pico
+      - SWIFTSTACK_PORT=8080
+    tty: true
+  pico:
+    image: swiftstack/picoswiftstack:6.21.0.0
+    ports:
+      - 8080:8080

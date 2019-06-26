@@ -1,0 +1,907 @@
+<?xml version="1.0"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:issue="http://canadiana.ca/schema/2012/xsd/issueinfo" xmlns:txt="http://canadiana.ca/schema/2012/xsd/txtmap" OBJID="01073">
+  <mets:dmdSec ID="dmd.oocihm.01073">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MARC">
+      <mets:xmlData>
+        <record xmlns="http://www.loc.gov/MARC21/slim">
+  <leader>01500nam a2200337 a 4500</leader>
+  <controlfield tag="001">3158791</controlfield>
+  <controlfield tag="007">he amb---bbcp</controlfield>
+  <controlfield tag="007">he bmb---baap</controlfield>
+  <controlfield tag="008">811029s1890    quc     bc    000 0 fre d</controlfield>
+  <datafield tag="016" ind1=" " ind2=" ">
+    <subfield code="a"> 816054827</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">0665010737</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">CaOOCIHM</subfield>
+    <subfield code="b">fre</subfield>
+    <subfield code="d">AEU</subfield>
+  </datafield>
+  <datafield tag="082" ind1="0" ind2=" ">
+    <subfield code="a">017.3</subfield>
+    <subfield code="2">19</subfield>
+  </datafield>
+  <datafield tag="090" ind1=" " ind2=" ">
+    <subfield code="a">FC 02 0203 no. 01073</subfield>
+    <subfield code="b">AEU</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="0">
+    <subfield code="a">Catalogue, vente &#xE0; l'encan par MM. Oct. Lemieux &amp; Cie. de la biblioth&#xE8; que de feu M. l'abb&#xE9; Campeau</subfield>
+    <subfield code="h">[microforme] :</subfield>
+    <subfield code="b">coeprenant [sic] plus de 1,000 volumes de th&#xE9;ologie : avec une collection d'ouvrages canadiens tr&#xE9;s choisis.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">[Qu&#xE9;bec? :</subfield>
+    <subfield code="b">s.n.],</subfield>
+    <subfield code="c">1890</subfield>
+    <subfield code="e">(Qu&#xE9;bec :</subfield>
+    <subfield code="f">C. Darveau)</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 microfiche (18 images).</subfield>
+  </datafield>
+  <datafield tag="490" ind1="1" ind2=" ">
+    <subfield code="a">CIHM/ICMH Microfiche series = CIHM/ICMH collection de microfiches ;</subfield>
+    <subfield code="v">no. 01073</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Titre de la couverture.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">"Vente &#xE0; l'ench&#xE8;re..."</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">"La vente commencera..."</subfield>
+  </datafield>
+  <datafield tag="533" ind1=" " ind2=" ">
+    <subfield code="a">Microfiche de l'exemplaire de l'&#xE9;dition originale se trouvant &#xE0; la Thomas Fisher Rare Book Library, University of Toronto Library.</subfield>
+    <subfield code="b">Ottawa :</subfield>
+    <subfield code="c">Institut canadien de microreproductions historiques,</subfield>
+    <subfield code="d">1980.</subfield>
+  </datafield>
+  <datafield tag="534" ind1=" " ind2=" ">
+    <subfield code="e">24 p.</subfield>
+  </datafield>
+  <datafield tag="600" ind1="1" ind2="6">
+    <subfield code="a">Campeau, Antoine,</subfield>
+    <subfield code="d">1812-1890.</subfield>
+  </datafield>
+  <datafield tag="600" ind1="1" ind2="0">
+    <subfield code="a">Campeau, Antoine,</subfield>
+    <subfield code="d">1812-1890.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="6">
+    <subfield code="a">Th&#xE9;ologie</subfield>
+    <subfield code="x">Bibliographie</subfield>
+    <subfield code="v">Catalogues.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Theology</subfield>
+    <subfield code="x">Bibliography</subfield>
+    <subfield code="v">Catalogs.</subfield>
+  </datafield>
+  <datafield tag="830" ind1=" " ind2="0">
+    <subfield code="a">CIHM/ICMH microfiche series ;</subfield>
+    <subfield code="v">no. 01073</subfield>
+  </datafield>
+  <datafield tag="949" ind1=" " ind2=" ">
+    <subfield code="h">UAHS-MF</subfield>
+    <subfield code="z">CIHMMPRE</subfield>
+  </datafield>
+  <datafield tag="596" ind1=" " ind2=" ">
+    <subfield code="a">43</subfield>
+  </datafield>
+  <datafield tag="926" ind1=" " ind2=" ">
+    <subfield code="a">UAHSS</subfield>
+    <subfield code="b">MICROFICHE</subfield>
+    <subfield code="c">FC 02 0203 no. 01073</subfield>
+    <subfield code="d">MICROFORM</subfield>
+    <subfield code="f">1</subfield>
+  </datafield>
+</record>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:dmdSec ID="dmd.oocihm.01073.5">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="txtmap">
+      <mets:xmlData>
+        <txtmap xmlns="http://canadiana.ca/schema/2012/xsd/txtmap">
+          <page>
+    <w T="3358" L="2050" W="48" H="62">6</w>
+    <w T="260" L="486" W="66" H="68">CATALOGUE</w>
+    <w T="596" L="306" W="78" H="80">VEiNTE</w>
+    <w T="598" L="794" W="74" H="80">A</w>
+    <w T="592" L="928" W="74" H="34">L'ENCAN</w>
+    <w T="763" L="841" W="24" H="30">PAR</w>
+    <w T="883" L="449" W="55" H="41">MM.</w>
+    <w T="882" L="609" W="43" H="41">OCT.</w>
+    <w T="878" L="785" W="41" H="45">LEMIEUX</w>
+    <w T="878" L="1133" W="44" H="46">&amp;</w>
+    <w T="880" L="1206" W="36" H="44">CIE</w>
+    <w T="1017" L="813" W="29" H="30">DE</w>
+    <w T="1017" L="900" W="24" H="30">LA.</w>
+    <w T="1139" L="146" W="41" H="77">Biblioth&#xE8;que</w>
+    <w T="1137" L="643" W="39" H="78">dafeu</w>
+    <w T="1137" L="908" W="53" H="77">M.</w>
+    <w T="1136" L="1029" W="11" H="34">l'abb&#xE9;</w>
+    <w T="1136" L="1279" W="45" H="78">Campeau</w>
+    <w T="1310" L="624" W="27" H="29">COEPltENANT</w>
+    <w T="1310" L="938" W="23" H="29">PLUS</w>
+    <w T="1310" L="1075" W="28" H="29">DE</w>
+    <w T="1428" L="278" W="32" H="110">,000</w>
+    <w T="1426" L="676" W="120" H="110">VOLUMES</w>
+    <w T="1613" L="682" W="42" H="42">De</w>
+    <w T="1613" L="777" W="36" H="42">Th&#xE9;ologie</w>
+    <w T="1729" L="294" W="34" H="35">Acec</w>
+    <w T="1738" L="413" W="8" H="12">-une</w>
+    <w T="1728" L="506" W="21" H="35">collection</w>
+    <w T="1725" L="728" W="13" H="38">cCOavrajes</w>
+    <w T="1725" L="981" W="33" H="38">Canadiens</w>
+    <w T="1727" L="1230" W="16" H="36">tris</w>
+    <w T="1726" L="1327" W="19" H="35">rhoisis</w>
+    <w T="1921" L="380" W="26" H="20">Vciito</w>
+    <w T="1919" L="500" W="16" H="25">&#xE0;</w>
+    <w T="1918" L="539" W="9" H="15">l'Kiiclifre</w>
+    <w T="1917" L="715" W="25" H="25">VENDEEDI,</w>
+    <w T="1918" L="958" W="8" H="25">lo</w>
+    <w T="1919" L="1008" W="14" H="24">18</w>
+    <w T="1919" L="1065" W="16" H="23">avril</w>
+    <w T="1925" L="1163" W="17" H="17">aux</w>
+    <w T="1916" L="1242" W="12" H="26">salles</w>
+    <w T="1916" L="1353" W="19" H="26">de</w>
+    <w T="1953" L="433" W="23" H="25">OCT.</w>
+    <w T="1952" L="527" W="24" H="25">LE.MlKUX</w>
+    <w T="1954" L="727" W="20" H="23">&amp;</w>
+    <w T="1955" L="765" W="20" H="20">UlE.,</w>
+    <w T="1955" L="867" W="12" H="21">-ai,</w>
+    <w T="1956" L="940" W="13" H="20">rue</w>
+    <w T="1952" L="1000" W="27" H="25">U</w>
+    <w T="1952" L="1040" W="23" H="25">F&#xBB;</w>
+    <w T="1953" L="1086" W="36" H="22">DOii.a</w>
+    <w T="1952" L="1209" W="17" H="25">6</w>
+    <w T="1952" L="1249" W="21" H="23">J.;iii</w>
+    <w T="1967" L="1331" W="6" H="5">&#x25A0;</w>
+    <w T="2012" L="389" W="26" H="23">Vi.ib.c</w>
+    <w T="2012" L="516" W="8" H="23">11</w>
+    <w T="2012" L="545" W="11" H="23">jo.ir</w>
+    <w T="2012" L="626" W="9" H="23">lie</w>
+    <w T="2018" L="675" W="5" H="17">.a</w>
+    <w T="2016" L="712" W="18" H="18">vo&#xFB;te</w>
+    <w T="2011" L="808" W="8" H="24">(le</w>
+    <w T="2010" L="856" W="15" H="25">9</w>
+    <w T="2010" L="885" W="20" H="24">U;ur,8</w>
+    <w T="2011" L="1003" W="18" H="24">du</w>
+    <w T="2011" L="1063" W="27" H="23">muti:i</w>
+    <w T="2013" L="1167" W="14" H="22">&#xE0;</w>
+    <w T="2010" L="1194" W="15" H="25">&#xE2;</w>
+    <w T="2010" L="1221" W="20" H="23">beu^i</w>
+    <w T="2011" L="1338" W="22" H="25">du</w>
+    <w T="2010" L="1391" W="12" H="25">soir.</w>
+    <w T="2175" L="378" W="29" H="35">LA</w>
+    <w T="2174" L="470" W="32" H="35">VENTE</w>
+    <w T="2173" L="668" W="26" H="35">COMMENCERA</w>
+    <w T="2175" L="1040" W="33" H="35">A</w>
+    <w T="2174" L="1108" W="15" H="33">7i</w>
+    <w T="2174" L="1176" W="23" H="34">h.</w>
+    <w T="2174" L="1239" W="27" H="34">P.</w>
+    <w T="2174" L="1310" W="36" H="37">M.,</w>
+    <w T="2278" L="712" W="42" H="42">Oct-</w>
+    <w T="2278" L="864" W="42" H="42">Lemieux</w>
+    <w T="2278" L="1161" W="43" H="42">&amp;</w>
+    <w T="2279" L="1236" W="37" H="40">Cie.,</w>
+    <w T="2372" L="1210" W="14" H="37">jEncantenrs.</w>
+    <w T="2360" L="1573" W="11" H="49">\^</w>
+    <w T="2410" L="1469" W="24" H="60">/</w>
+    <w T="2410" L="1580" W="26" H="47">^</w>
+    <w T="2633" L="787" W="28" H="30">QU&#xC9;BHC</w>
+    <w T="2697" L="651" W="19" H="19">TTFCOa&#xE0;FHIB</w>
+    <w T="2699" L="877" W="20" H="18">DE</w>
+    <w T="2700" L="931" W="17" H="17">C.</w>
+    <w T="2699" L="978" W="19" H="19">DARVEAU</w>
+    <w T="2785" L="852" W="13" H="23">1890</w>
+    <w T="2474" L="1474" W="94" H="100">^</w>
+    <w T="2890" L="1120" W="7" H="15">*.</w>
+  </page>
+        </txtmap>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:dmdSec ID="dmd.oocihm.01073.6">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="txtmap">
+      <mets:xmlData>
+        <txtmap xmlns="http://canadiana.ca/schema/2012/xsd/txtmap">
+          <page>
+    <w T="2888" L="1141" W="8" H="14">&#x25A0;.IUJU.&#xAB;i.U.,4J-'A</w>
+    <w T="3062" L="154" W="32" H="20">n</w>
+    <w T="3059" L="211" W="4" H="4">,'</w>
+  </page>
+        </txtmap>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:dmdSec ID="dmd.oocihm.01073.7">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="txtmap">
+      <mets:xmlData>
+        <txtmap xmlns="http://canadiana.ca/schema/2012/xsd/txtmap">
+          <page>
+    <w T="3063" L="270" W="13" H="3">/-&#x25A0;</w>
+    <w T="520" L="450" W="88" H="104">CATALOGUE</w>
+    <w T="931" L="244" W="24" H="39">1</w>
+    <w T="930" L="300" W="38" H="40">Annales</w>
+    <w T="930" L="511" W="26" H="40">de</w>
+    <w T="930" L="584" W="13" H="39">la</w>
+    <w T="930" L="648" W="27" H="39">propagation</w>
+    <w T="930" L="962" W="24" H="40">de</w>
+    <w T="930" L="1036" W="12" H="40">la</w>
+    <w T="930" L="1106" W="21" H="40">foi,</w>
+    <w T="931" L="1211" W="13" H="39">les</w>
+    <w T="933" L="1291" W="27" H="37">48</w>
+    <w T="931" L="1376" W="29" H="39">premiers</w>
+    <w T="944" L="331" W="14" H="18">vo-lumes</w>
+    <w T="999" L="488" W="22" H="39">complets</w>
+    <w T="999" L="717" W="21" H="40">et</w>
+    <w T="999" L="781" W="14" H="14">l'index</w>
+    <w T="999" L="961" W="28" H="40">de</w>
+    <w T="1001" L="1038" W="19" H="28">1822-1853.</w>
+    <w T="1001" L="1511" W="27" H="38">49</w>
+    <w T="999" L="1588" W="25" H="40">vols.</w>
+    <w T="1090" L="248" W="28" H="40">2</w>
+    <w T="1090" L="307" W="38" H="39">Annales</w>
+    <w T="1090" L="517" W="27" H="39">de</w>
+    <w T="1090" L="591" W="15" H="39">la</w>
+    <w T="1090" L="659" W="26" H="39">propagation</w>
+    <w T="1090" L="961" W="29" H="39">de</w>
+    <w T="1090" L="1046" W="14" H="39">la</w>
+    <w T="1089" L="1108" W="20" H="40">foi</w>
+    <w T="1090" L="1200" W="28" H="39">pour</w>
+    <w T="1090" L="1329" W="14" H="39">la</w>
+    <w T="1089" L="1402" W="27" H="39">province</w>
+    <w T="1089" L="1637" W="29" H="41">de</w>
+    <w T="1156" L="389" W="38" H="39">Qu&#xE9;bec,</w>
+    <w T="1156" L="592" W="14" H="39">les</w>
+    <w T="1157" L="675" W="23" H="38">26</w>
+    <w T="1156" L="747" W="28" H="39">premiers</w>
+    <w T="1157" L="975" W="29" H="39">num&#xE9;ros.</w>
+    <w T="1250" L="246" W="30" H="40">3</w>
+    <w T="1249" L="306" W="38" H="39">Annales</w>
+    <w T="1249" L="516" W="27" H="40">de</w>
+    <w T="1249" L="590" W="14" H="39">la</w>
+    <w T="1249" L="654" W="29" H="30">Sainte-Enfance,</w>
+    <w T="1250" L="1065" W="14" H="39">les</w>
+    <w T="1252" L="1159" W="10" H="13">'S5</w>
+    <w T="1250" L="1248" W="27" H="39">premiers</w>
+    <w T="1250" L="1486" W="26" H="40">volumes,</w>
+    <w T="1317" L="387" W="29" H="40">broch&#xE9;s,</w>
+    <w T="1317" L="602" W="23" H="40">7</w>
+    <w T="1318" L="649" W="25" H="40">volumes</w>
+    <w T="1319" L="860" W="22" H="39">complets</w>
+    <w T="1318" L="1091" W="23" H="41">en</w>
+    <w T="1318" L="1176" W="25" H="40">double</w>
+    <w T="1322" L="1360" W="23" H="37">et</w>
+    <w T="1319" L="1437" W="19" H="40">113</w>
+    <w T="1319" L="1544" W="29" H="40">divers</w>
+    <w T="1385" L="387" W="30" H="39">num&#xE9;ros.</w>
+    <w T="1480" L="246" W="30" H="39">4</w>
+    <w T="1478" L="306" W="34" H="40">Echo</w>
+    <w T="1478" L="444" W="27" H="40">du</w>
+    <w T="1478" L="523" W="34" H="40">Cabinet</w>
+    <w T="1478" L="737" W="29" H="40">de</w>
+    <w T="1478" L="823" W="13" H="40">lecture,</w>
+    <w T="1478" L="1032" W="23" H="41">7</w>
+    <w T="1479" L="1089" W="27" H="40">volumes</w>
+    <w T="1478" L="1315" W="23" H="40">complets</w>
+    <w T="1482" L="1556" W="23" H="37">et</w>
+    <w T="1481" L="1640" W="20" H="39">10</w>
+    <w T="1546" L="386" W="30" H="40">num&#xE9;ros</w>
+    <w T="1546" L="609" W="23" H="40">en</w>
+    <w T="1546" L="683" W="27" H="40">double,</w>
+    <w T="1640" L="246" W="28" H="41">6</w>
+    <w T="1640" L="304" W="35" H="40">Bulletin</w>
+    <w T="1640" L="530" W="28" H="40">de</w>
+    <w T="1638" L="630" W="15" H="16">l'Union</w>
+    <w T="1638" L="840" W="39" H="41">Allet,</w>
+    <w T="1641" L="1000" W="20" H="39">10</w>
+    <w T="1639" L="1084" W="27" H="41">vols</w>
+    <w T="1639" L="1225" W="24" H="41">complets,</w>
+    <w T="1638" L="1478" W="42" H="41">moins</w>
+    <w T="1638" L="1651" W="15" H="41">le</w>
+    <w T="1708" L="385" W="30" H="39">num&#xE9;ro</w>
+    <w T="1707" L="597" W="25" H="40">3</w>
+    <w T="1707" L="644" W="26" H="40">du</w>
+    <w T="1707" L="722" W="25" H="39">volume</w>
+    <w T="1709" L="915" W="26" H="39">3.</w>
+    <w T="1799" L="244" W="28" H="41">6</w>
+    <w T="1799" L="303" W="37" H="40">Revue</w>
+    <w T="1799" L="471" W="19" H="39">th&#xE9;ologique,</w>
+    <w T="1799" L="779" W="14" H="39">les</w>
+    <w T="1801" L="861" W="24" H="38">6</w>
+    <w T="1797" L="907" W="27" H="41">premiers</w>
+    <w T="1797" L="1135" W="28" H="41">volumes</w>
+    <w T="1797" L="1349" W="30" H="40">broch&#xE9;s,</w>
+    <w T="1880" L="246" W="25" H="41">7</w>
+    <w T="1881" L="303" W="43" H="39">M&#xE9;langes</w>
+    <w T="1880" L="543" W="19" H="39">th&#xE9;ologiques,</w>
+    <w T="1880" L="872" W="13" H="39">les</w>
+    <w T="1882" L="954" W="24" H="38">6</w>
+    <w T="1880" L="1000" W="27" H="39">premiers</w>
+    <w T="1881" L="1227" W="27" H="39">vols,</w>
+    <w T="1880" L="1354" W="29" H="39">broch&#xE9;s.</w>
+    <w T="1960" L="243" W="29" H="40">8</w>
+    <w T="1960" L="302" W="34" H="40">La</w>
+    <w T="1959" L="384" W="35" H="40">Th&#xE9;mis,</w>
+    <w T="1959" L="589" W="14" H="40">les</w>
+    <w T="1961" L="673" W="23" H="38">5</w>
+    <w T="1959" L="718" W="26" H="39">premiers</w>
+    <w T="1959" L="945" W="28" H="39">volumes,</w>
+    <w T="1959" L="1171" W="29" H="39">broch&#xE9;s,</w>
+    <w T="2042" L="244" W="26" H="40">9</w>
+    <w T="2041" L="300" W="39" H="40">Annales</w>
+    <w T="2041" L="512" W="25" H="40">de</w>
+    <w T="2041" L="585" W="14" H="40">la</w>
+    <w T="2042" L="648" W="27" H="39">bonne</w>
+    <w T="2041" L="808" W="19" H="39">sainte</w>
+    <w T="2041" L="968" W="40" H="39">Anne,</w>
+    <w T="2042" L="1125" W="13" H="39">les</w>
+    <w T="2044" L="1205" W="19" H="37">13</w>
+    <w T="2041" L="1272" W="28" H="40">premiers</w>
+    <w T="2042" L="1496" W="26" H="39">volumes</w>
+    <w T="2124" L="383" W="23" H="39">complets</w>
+    <w T="2127" L="611" W="22" H="36">et</w>
+    <w T="2124" L="674" W="26" H="39">plusieurs</w>
+    <w T="2123" L="909" W="13" H="40">livraisons</w>
+    <w T="2124" L="1158" W="24" H="40">en</w>
+    <w T="2124" L="1233" W="26" H="40">double,</w>
+    <w T="2218" L="217" W="22" H="40">10</w>
+    <w T="2218" L="299" W="35" H="40">La</w>
+    <w T="2217" L="378" W="30" H="39">Semaine</w>
+    <w T="2215" L="593" W="22" H="39">religieuse,</w>
+    <w T="2215" L="851" W="26" H="40">de</w>
+    <w T="2216" L="924" W="43" H="40">Montr&#xE9;al,</w>
+    <w T="2216" L="1180" W="13" H="40">les</w>
+    <w T="2216" L="1260" W="27" H="40">volumes</w>
+    <w T="2219" L="1476" W="20" H="38">1</w>
+    <w T="2219" L="1651" W="27" H="39">4</w>
+    <w T="2302" L="345" W="25" H="36">5,</w>
+    <w T="2301" L="407" W="20" H="37">10,</w>
+    <w T="2300" L="492" W="19" H="38">12,</w>
+    <w T="2300" L="579" W="16" H="37">14</w>
+    <w T="2297" L="651" W="22" H="40">complets</w>
+    <w T="2300" L="877" W="22" H="38">et</w>
+    <w T="2311" L="940" W="29" H="26">un</w>
+    <w T="2297" L="1021" W="28" H="40">grand</w>
+    <w T="2297" L="1176" W="28" H="40">nombre</w>
+    <w T="2297" L="1376" W="27" H="40">de</w>
+    <w T="2298" L="1447" W="15" H="39">livr.</w>
+    <w T="2313" L="1617" W="8" H="23">^n&#xBB;.</w>
+    <w T="2396" L="216" W="22" H="40">11</w>
+    <w T="2394" L="299" W="34" H="41">La</w>
+    <w T="2393" L="382" W="39" H="41">Revue</w>
+    <w T="2393" L="550" W="27" H="40">du</w>
+    <w T="2391" L="631" W="33" H="31">Tiers-Ordre,</w>
+    <w T="2392" L="943" W="14" H="40">les</w>
+    <w T="2394" L="1026" W="25" H="39">6</w>
+    <w T="2393" L="1072" W="28" H="39">premiers</w>
+    <w T="2394" L="1299" W="27" H="39">vols</w>
+    <w T="2395" L="1414" W="21" H="39">complets.</w>
+    <w T="2476" L="216" W="20" H="41">12</w>
+    <w T="2475" L="298" W="35" H="41">La</w>
+    <w T="2475" L="382" W="38" H="39">Revue</w>
+    <w T="2473" L="543" W="23" H="40">canadienne,</w>
+    <w T="2473" L="842" W="26" H="40">volume</w>
+    <w T="2476" L="1035" W="21" H="37">12,</w>
+    <w T="2475" L="1123" W="20" H="39">13,</w>
+    <w T="2476" L="1210" W="20" H="38">14,</w>
+    <w T="2476" L="1296" W="21" H="38">15,</w>
+    <w T="2476" L="1385" W="19" H="38">16.</w>
+    <w T="2557" L="216" W="19" H="40">13</w>
+    <w T="2556" L="298" W="34" H="40">La</w>
+    <w T="2554" L="382" W="37" H="40">Gazette</w>
+    <w T="2554" L="583" W="28" H="40">des</w>
+    <w T="2553" L="677" W="20" H="40">familles,</w>
+    <w T="2553" L="896" W="14" H="40">les</w>
+    <w T="2555" L="979" W="24" H="38">6</w>
+    <w T="2554" L="1026" W="26" H="39">premiers</w>
+    <w T="2554" L="1262" W="27" H="40">volumes.</w>
+    <w T="2640" L="215" W="21" H="40">14</w>
+    <w T="2638" L="297" W="37" H="39">Quicherat</w>
+    <w T="2663" L="536" W="56" H="5">&#x2014;</w>
+    <w T="2636" L="594" W="38" H="40">Dictionnaire</w>
+    <w T="2636" L="910" W="20" H="31">fran&#xE7;ais-latin,</w>
+  </page>
+        </txtmap>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:dmdSec ID="dmd.oocihm.01073.8">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="txtmap">
+      <mets:xmlData>
+        <txtmap xmlns="http://canadiana.ca/schema/2012/xsd/txtmap">
+          <page>
+    <w T="2638" L="1265" W="19" H="38">1863.</w>
+    <w T="268" L="425" W="19" H="39">16</w>
+    <w T="268" L="506" W="34" H="30">Bouillet&#x2014;</w>
+    <w T="265" L="749" W="40" H="40">Dictionnaire</w>
+    <w T="263" L="1062" W="26" H="16">d'histoire</w>
+    <w T="263" L="1300" W="20" H="41">et</w>
+    <w T="263" L="1363" W="24" H="40">de</w>
+    <w T="261" L="1435" W="29" H="40">g&#xE9;ographie.</w>
+    <w T="346" L="425" W="20" H="42">16</w>
+    <w T="346" L="508" W="34" H="42">Chroniques</w>
+    <w T="347" L="796" W="21" H="40">concernant</w>
+    <w T="346" L="1073" W="12" H="42">le</w>
+    <w T="346" L="1132" W="34" H="41">Concile,</w>
+    <w T="344" L="1340" W="14" H="41">1869.</w>
+    <w T="344" L="1734" W="23" H="39">2</w>
+    <w T="342" L="1781" W="24" H="40">vols.</w>
+    <w T="432" L="423" W="22" H="41">17</w>
+    <w T="432" L="505" W="34" H="42">The</w>
+    <w T="433" L="614" W="42" H="41">Holy</w>
+    <w T="434" L="752" W="35" H="40">Bible,</w>
+    <w T="431" L="905" W="12" H="42">illustrated,</w>
+    <w T="431" L="1179" W="40" H="33">New-</w>
+    <w T="432" L="1307" W="40" H="41">York,</w>
+    <w T="433" L="1466" W="17" H="39">1836.</w>
+    <w T="512" L="509" W="36" H="41">Gury</w>
+    <w T="538" L="633" W="54" H="6">&#x2014;</w>
+    <w T="514" L="690" W="34" H="39">Theologi&#x153;</w>
+    <w T="514" L="949" W="12" H="39">inoralis.</w>
+    <w T="514" L="1164" W="37" H="39">Rom&#x153;,</w>
+    <w T="512" L="1342" W="18" H="40">1869.</w>
+    <w T="512" L="1737" W="24" H="39">2</w>
+    <w T="510" L="1783" W="24" H="40">vols.</w>
+    <w T="604" L="431" W="21" H="39">18</w>
+    <w T="604" L="514" W="33" H="15">L'abb&#xE9;</w>
+    <w T="605" L="688" W="38" H="40">Du</w>
+    <w T="606" L="774" W="34" H="40">Cl&#xF4;t</w>
+    <w T="632" L="874" W="53" H="5">&#x2014;</w>
+    <w T="607" L="930" W="34" H="40">La</w>
+    <w T="607" L="1011" W="19" H="40">sainte</w>
+    <w T="606" L="1169" W="34" H="40">Bible</w>
+    <w T="606" L="1311" W="23" H="39">veng&#xE9;e.</w>
+    <w T="606" L="1736" W="27" H="39">3</w>
+    <w T="603" L="1784" W="25" H="41">vols.</w>
+    <w T="686" L="429" W="21" H="41">19</w>
+    <w T="686" L="511" W="34" H="15">L'abb&#xE9;</w>
+    <w T="687" L="687" W="34" H="41">Copart</w>
+    <w T="713" L="851" W="50" H="6">&#x2014;</w>
+    <w T="689" L="907" W="39" H="39">Miroir</w>
+    <w T="689" L="1073" W="25" H="39">du</w>
+    <w T="689" L="1150" W="21" H="38">clerg&#xE9;.</w>
+    <w T="766" L="511" W="37" H="41">R.</w>
+    <w T="767" L="579" W="33" H="41">P.</w>
+    <w T="767" L="645" W="34" H="41">Lebrun</w>
+    <w T="794" L="819" W="52" H="5">&#x2014;</w>
+    <w T="769" L="875" W="33" H="40">Explication</w>
+    <w T="770" L="1164" W="26" H="39">des</w>
+    <w T="768" L="1257" W="27" H="41">pri&#xE8;res</w>
+    <w T="767" L="1438" W="26" H="41">de</w>
+    <w T="767" L="1512" W="8" H="41">la</w>
+    <w T="782" L="1573" W="39" H="8">mv-^</w>
+    <w T="782" L="1643" W="4" H="11">&#x25A0;=&lt;"*&#xBB;</w>
+    <w T="848" L="514" W="34" H="16">L'abb&#xE9;</w>
+    <w T="850" L="690" W="39" H="41">Doney</w>
+    <w T="876" L="844" W="53" H="6">&#x2014;</w>
+    <w T="851" L="900" W="33" H="40">Cat&#xE9;chisme</w>
+    <w T="851" L="1184" W="26" H="40">du</w>
+    <w T="850" L="1262" W="21" H="41">concile</w>
+    <w T="850" L="1441" W="27" H="41">de</w>
+    <w T="850" L="1509" W="34" H="40">Trente.</w>
+    <w T="853" L="1712" W="24" H="37">2</w>
+    <w T="850" L="1761" W="22" H="40">vols.</w>
+    <w T="939" L="427" W="28" H="42">20</w>
+    <w T="939" L="513" W="36" H="34">Vosgien&#x2014;</w>
+    <w T="942" L="755" W="38" H="40">Dictionnaire</w>
+    <w T="943" L="1065" W="28" H="39">g&#xE9;ographique,</w>
+    <w T="943" L="1416" W="18" H="38">1835.</w>
+    <w T="1020" L="512" W="33" H="41">The</w>
+    <w T="1021" L="621" W="35" H="41">End</w>
+    <w T="1023" L="737" W="24" H="40">of</w>
+    <w T="1023" L="803" W="21" H="39">religious</w>
+    <w T="1026" L="1022" W="21" H="36">controversy.</w>
+    <w T="1098" L="515" W="35" H="42">Examen</w>
+    <w T="1101" L="727" W="22" H="40">raisonn&#xE9;</w>
+    <w T="1101" L="944" W="20" H="40">sur</w>
+    <w T="1101" L="1037" W="13" H="40">les</w>
+    <w T="1101" L="1115" W="21" H="40">commandements.</w>
+    <w T="1102" L="1740" W="23" H="39">2</w>
+    <w T="1101" L="1787" W="25" H="40">vols.</w>
+    <w T="1192" L="434" W="27" H="41">21</w>
+    <w T="1192" L="519" W="33" H="42">Catechism</w>
+    <w T="1195" L="781" W="24" H="40">of</w>
+    <w T="1195" L="849" W="18" H="40">the</w>
+    <w T="1195" L="942" W="33" H="40">Council</w>
+    <w T="1195" L="1139" W="23" H="41">of</w>
+    <w T="1195" L="1205" W="33" H="40">Trent.</w>
+    <w T="1274" L="517" W="35" H="16">Lingard's</w>
+    <w T="1277" L="760" W="38" H="39">Antiquities</w>
+    <w T="1276" L="1044" W="24" H="40">of</w>
+    <w T="1276" L="1109" W="37" H="30">Anglo-Saxon</w>
+    <w T="1272" L="1434" W="34" H="44">Church.</w>
+    <w T="1354" L="518" W="34" H="41">Ecclesiastical</w>
+    <w T="1357" L="853" W="26" H="39">history</w>
+    <w T="1357" L="1039" W="23" H="40">of</w>
+    <w T="1355" L="1103" W="21" H="41">Ireland.</w>
+    <w T="1437" L="521" W="50" H="41">Waterworth</w>
+    <w T="1464" L="811" W="55" H="6">&#x2014;</w>
+    <w T="1439" L="869" W="33" H="40">Lectures</w>
+    <w T="1443" L="1086" W="24" H="36">on</w>
+    <w T="1439" L="1160" W="18" H="40">the</w>
+    <w T="1439" L="1254" W="36" H="39">Reformation.</w>
+    <w T="1529" L="438" W="25" H="42">22</w>
+    <w T="1529" L="523" W="34" H="41">Liguorio</w>
+    <w T="1556" L="724" W="55" H="6">&#x2014;</w>
+    <w T="1530" L="783" W="34" H="40">Theologia</w>
+    <w T="1530" L="1032" W="41" H="40">moralis.</w>
+    <w T="1533" L="1541" W="19" H="21">-</w>
+    <w T="1533" L="1744" W="26" H="38">8</w>
+    <w T="1530" L="1791" W="25" H="40">vols.</w>
+    <w T="1610" L="438" W="25" H="41">23</w>
+    <w T="1610" L="522" W="36" H="41">R.</w>
+    <w T="1612" L="591" W="31" H="40">P.</w>
+    <w T="1613" L="655" W="35" H="39">Berthier</w>
+    <w T="1638" L="856" W="52" H="6">&#x2014;</w>
+    <w T="1613" L="911" W="33" H="40">Les</w>
+    <w T="1613" L="1011" W="31" H="39">Psaumes</w>
+    <w T="1612" L="1229" W="24" H="39">annot&#xE9;s.</w>
+    <w T="1613" L="1741" W="26" H="38">8</w>
+    <w T="1611" L="1790" W="23" H="39">vols.</w>
+    <w T="1692" L="438" W="26" H="40">24</w>
+    <w T="1692" L="525" W="34" H="40">Bouvier</w>
+    <w T="1718" L="710" W="55" H="5">&#x2014;</w>
+    <w T="1693" L="766" W="21" H="39">Institutiones</w>
+    <w T="1692" L="1086" W="18" H="39">theologicse.</w>
+    <w T="1695" L="1744" W="25" H="38">6</w>
+    <w T="1692" L="1792" W="23" H="39">vols.</w>
+    <w T="1771" L="524" W="51" H="16">Wiseman's</w>
+    <w T="1773" L="791" W="14" H="40">lectures.</w>
+    <w T="1776" L="1633" W="24" H="38">2</w>
+    <w T="1773" L="1680" W="26" H="41">vols</w>
+    <w T="1773" L="1793" W="10" H="39">in</w>
+    <w T="1775" L="1855" W="20" H="37">1.</w>
+    <w T="1854" L="523" W="38" H="40">Avertissements</w>
+    <w T="1855" L="904" W="28" H="39">utiles</w>
+    <w T="1868" L="1051" W="25" H="26">aux</w>
+    <w T="1854" L="1156" W="21" H="40">confesseurs.</w>
+    <w T="1935" L="524" W="38" H="16">Rever's</w>
+    <w T="1936" L="715" W="42" H="40">manual.</w>
+    <w T="1936" L="958" W="33" H="40">Conduite</w>
+    <w T="1937" L="1188" W="25" H="40">des</w>
+    <w T="1937" L="1287" W="21" H="40">confesseurs.</w>
+    <w T="2028" L="439" W="26" H="41">25</w>
+    <w T="2028" L="526" W="33" H="41">Edits</w>
+    <w T="2028" L="666" W="22" H="41">et</w>
+    <w T="2028" L="731" W="37" H="40">Ordonnances.</w>
+    <w T="2031" L="1748" W="26" H="38">3</w>
+    <w T="2028" L="1796" W="25" H="40">vols.</w>
+    <w T="2106" L="441" W="25" H="42">26</w>
+    <w T="2106" L="526" W="33" H="41">Tach&#xE9;</w>
+    <w T="2132" L="663" W="55" H="6">&#x2014;</w>
+    <w T="2106" L="721" W="34" H="41">Le</w>
+    <w T="2106" L="800" W="33" H="40">Canada</w>
+    <w T="2107" L="994" W="21" H="40">et</w>
+    <w T="2106" L="1057" W="14" H="14">l'Exposition</w>
+    <w T="2107" L="1355" W="25" H="41">de</w>
+    <w T="2107" L="1433" W="32" H="41">Paris</w>
+    <w T="2111" L="1581" W="22" H="37">et</w>
+    <w T="2107" L="1655" W="29" H="41">un</w>
+    <w T="2105" L="1751" W="14" H="42">lot</w>
+    <w T="2105" L="1847" W="27" H="41">de</w>
+    <w T="2188" L="604" W="28" H="39">brochures.</w>
+    <w T="2282" L="447" W="25" H="41">27</w>
+    <w T="2282" L="532" W="38" H="40">Dutripon</w>
+    <w T="2281" L="768" W="21" H="40">concordantisB.</w>
+    <w T="2363" L="527" W="34" H="40">Bibliorum</w>
+    <w T="2376" L="788" W="20" H="25">sacrorum.</w>
+    <w T="2456" L="442" W="26" H="41">28</w>
+    <w T="2455" L="528" W="52" H="14">Worcester's</w>
+    <w T="2454" L="818" W="27" H="41">dictionary,</w>
+    <w T="2456" L="1096" W="20" H="39">1860.</w>
+    <w T="2541" L="445" W="25" H="42">29</w>
+    <w T="2541" L="531" W="42" H="42">Mgr</w>
+    <w T="2540" L="650" W="28" H="42">Joly</w>
+    <w T="2539" L="783" W="28" H="42">de</w>
+    <w T="2539" L="866" W="35" H="41">Choin</w>
+    <w T="2565" L="1006" W="55" H="6">&#x2014;</w>
+    <w T="2539" L="1063" W="22" H="40">Instructions</w>
+    <w T="2542" L="1381" W="18" H="41">sur</w>
+    <w T="2542" L="1487" W="14" H="42">le</w>
+    <w T="2542" L="1547" W="38" H="40">Rituel.</w>
+    <w T="2543" L="1735" W="26" H="40">3</w>
+    <w T="2540" L="1801" W="27" H="40">vols^</w>
+    <w T="2625" L="614" W="25" H="37">4to,</w>
+  </page>
+        </txtmap>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:dmdSec ID="dmd.oocihm.01073.9">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="txtmap">
+      <mets:xmlData>
+        <txtmap xmlns="http://canadiana.ca/schema/2012/xsd/txtmap">
+          <page>
+    <w T="2620" L="720" W="21" H="41">1780.</w>
+    <w T="289" L="215" W="26" H="41">30</w>
+    <w T="289" L="301" W="40" H="41">Konings</w>
+    <w T="314" L="499" W="53" H="6">&#x2014;</w>
+    <w T="289" L="554" W="35" H="40">Theologise</w>
+    <w T="288" L="817" W="40" H="40">moralis,</w>
+    <w T="287" L="1022" W="32" H="43">S.</w>
+    <w T="286" L="1087" W="38" H="42">Alphons&#xEE;.</w>
+    <w T="372" L="214" W="27" H="41">31</w>
+    <w T="372" L="301" W="35" H="14">L'abb&#xE9;</w>
+    <w T="372" L="476" W="37" H="39">Godescard</w>
+    <w T="398" L="723" W="53" H="5">&#x2014;</w>
+    <w T="371" L="779" W="36" H="40">Vies</w>
+    <w T="371" L="899" W="27" H="40">des</w>
+    <w T="373" L="993" W="20" H="38">saints.</w>
+    <w T="373" L="1508" W="21" H="39">10</w>
+    <w T="369" L="1585" W="27" H="42">vols.</w>
+    <w T="455" L="213" W="26" H="40">32</w>
+    <w T="455" L="300" W="33" H="40">Chevassu</w>
+    <w T="480" L="525" W="53" H="6">&#x2014;</w>
+    <w T="455" L="582" W="40" H="40">M&#xE9;ditations</w>
+    <w T="454" L="879" W="21" H="40">eccl&#xE9;siastiques.</w>
+    <w T="456" L="1538" W="27" H="39">3</w>
+    <w T="454" L="1586" W="27" H="40">vols.</w>
+    <w T="536" L="214" W="25" H="39">33</w>
+    <w T="536" L="300" W="35" H="39">Gousset</w>
+    <w T="561" L="481" W="57" H="5">&#x2014;</w>
+    <w T="536" L="539" W="34" H="39">Th&#xE9;ologie</w>
+    <w T="536" L="789" W="40" H="39">morale.</w>
+    <w T="538" L="1541" W="25" H="38">2</w>
+    <w T="535" L="1588" W="27" H="22">vols*</w>
+    <w T="615" L="215" W="25" H="40">34</w>
+    <w T="615" L="302" W="35" H="39">Vie</w>
+    <w T="616" L="399" W="27" H="40">de</w>
+    <w T="616" L="472" W="20" H="39">saint</w>
+    <w T="616" L="610" W="33" H="39">Fran&#xE7;ois</w>
+    <w T="616" L="832" W="27" H="40">de</w>
+    <w T="616" L="905" W="30" H="40">Sales.</w>
+    <w T="619" L="1535" W="25" H="37">2</w>
+    <w T="615" L="1583" W="26" H="41">vols.</w>
+    <w T="695" L="299" W="35" H="13">L'abb&#xE9;</w>
+    <w T="695" L="476" W="33" H="39">Falise</w>
+    <w T="721" L="617" W="55" H="5">&#x2014;</w>
+    <w T="695" L="674" W="33" H="40">Th&#xE9;ologie</w>
+    <w T="699" L="924" W="28" H="36">pratique.</w>
+    <w T="774" L="299" W="30" H="39">Sacrorum</w>
+    <w T="775" L="546" W="21" H="39">rituum</w>
+    <w T="776" L="728" W="21" H="38">congregationem</w>
+    <w T="777" L="1125" W="26" H="39">d&#xE9;cr&#xE9;ta.</w>
+    <w T="866" L="213" W="27" H="40">35</w>
+    <w T="866" L="301" W="34" H="39">Bergier</w>
+    <w T="892" L="476" W="55" H="5">&#x2014;</w>
+    <w T="866" L="533" W="39" H="40">Dictionnaire</w>
+    <w T="867" L="849" W="27" H="40">de</w>
+    <w T="867" L="922" W="17" H="40">th&#xE9;ologie.</w>
+    <w T="870" L="1532" W="27" H="38">8</w>
+    <w T="867" L="1580" W="26" H="41">vols</w>
+    <w T="948" L="214" W="26" H="41">36</w>
+    <w T="948" L="301" W="34" H="40">Cantiques</w>
+    <w T="949" L="555" W="27" H="40">pour</w>
+    <w T="949" L="684" W="13" H="39">le</w>
+    <w T="949" L="743" W="27" H="39">dioc&#xE8;se</w>
+    <w T="949" L="927" W="27" H="41">de</w>
+    <w T="949" L="1001" W="38" H="40">Qu&#xE9;bec,</w>
+    <w T="951" L="1206" W="19" H="39">1819.</w>
+    <w T="1028" L="214" W="27" H="41">37</w>
+    <w T="1028" L="301" W="34" H="13">Lingard's</w>
+    <w T="1028" L="544" W="41" H="40">History</w>
+    <w T="1027" L="747" W="24" H="41">of</w>
+    <w T="1028" L="815" W="34" H="40">England.</w>
+    <w T="1031" L="1391" W="20" H="39">12</w>
+    <w T="1030" L="1463" W="26" H="41">vols</w>
+    <w T="1031" L="1577" W="23" H="39">en</w>
+    <w T="1031" L="1652" W="25" H="40">6.</w>
+    <w T="1105" L="213" W="26" H="41">38</w>
+    <w T="1105" L="300" W="34" H="40">Chantrel</w>
+    <w T="1130" L="509" W="54" H="6">&#x2014;</w>
+    <w T="1105" L="565" W="38" H="40">Annales</w>
+    <w T="1106" L="775" W="21" H="40">eccl&#xE9;siastiques,</w>
+    <w T="1108" L="1152" W="19" H="30">1846-1860.</w>
+    <w T="1185" L="300" W="34" H="41">Le</w>
+    <w T="1186" L="378" W="41" H="30">Nouveau-Testament,</w>
+    <w T="1187" L="892" W="28" H="40">publi&#xE9;</w>
+    <w T="1187" L="1062" W="25" H="41">par</w>
+    <w T="1187" L="1160" W="42" H="40">Mgr</w>
+    <w T="1188" L="1276" W="35" H="40">Turgeon,</w>
+    <w T="1190" L="1510" W="20" H="39">1846.</w>
+    <w T="1285" L="215" W="26" H="41">39</w>
+    <w T="1285" L="302" W="33" H="40">Examen</w>
+    <w T="1285" L="513" W="22" H="39">raisonn&#xE9;</w>
+    <w T="1285" L="729" W="20" H="39">sur</w>
+    <w T="1285" L="825" W="12" H="40">les</w>
+    <w T="1285" L="904" W="27" H="39">devoirs</w>
+    <w T="1286" L="1097" W="21" H="40">et</w>
+    <w T="1286" L="1160" W="12" H="39">les</w>
+    <w T="1285" L="1241" W="27" H="40">p&#xE9;ch&#xE9;s.</w>
+    <w T="1288" L="1534" W="25" H="38">2</w>
+    <w T="1286" L="1581" W="27" H="40">vols.</w>
+    <w T="1367" L="302" W="33" H="40">Examen</w>
+    <w T="1367" L="513" W="21" H="39">raisonn&#xE9;</w>
+    <w T="1367" L="730" W="20" H="39">sur</w>
+    <w T="1367" L="825" W="13" H="39">les</w>
+    <w T="1367" L="905" W="28" H="39">devoirs</w>
+    <w T="1368" L="1097" W="26" H="39">des</w>
+    <w T="1369" L="1189" W="28" H="38">pr&#xEA;tres.</w>
+    <w T="1370" L="1534" W="25" H="38">2</w>
+    <w T="1369" L="1582" W="27" H="39">vols.</w>
+    <w T="1457" L="217" W="26" H="40">40</w>
+    <w T="1457" L="303" W="34" H="14">L'abb&#xE9;</w>
+    <w T="1457" L="479" W="28" H="40">Jacquin</w>
+    <w T="1483" L="666" W="53" H="5">&#x2014;</w>
+    <w T="1457" L="722" W="38" H="40">Dictionnaire</w>
+    <w T="1457" L="1039" W="27" H="40">du</w>
+    <w T="1458" L="1117" W="21" H="40">cur&#xE9;</w>
+    <w T="1458" L="1236" W="27" H="40">de</w>
+    <w T="1473" L="1309" W="22" H="26">campagne.</w>
+    <w T="1537" L="213" W="28" H="41">41</w>
+    <w T="1537" L="300" W="33" H="40">Frost</w>
+    <w T="1563" L="426" W="54" H="5">&#x2014;</w>
+    <w T="1537" L="483" W="42" H="40">History</w>
+    <w T="1537" L="686" W="24" H="41">of</w>
+    <w T="1538" L="751" W="43" H="31">United-States,</w>
+    <w T="1539" L="1115" W="12" H="40">illustrated.</w>
+    <w T="1624" L="298" W="34" H="40">The</w>
+    <w T="1623" L="406" W="30" H="40">history</w>
+    <w T="1623" L="597" W="25" H="41">of</w>
+    <w T="1623" L="664" W="37" H="40">Greece.</w>
+    <w T="1624" L="890" W="39" H="41">A</w>
+    <w T="1624" L="950" W="26" H="40">papist</w>
+    <w T="1623" L="1115" W="40" H="40">misrepresented.</w>
+    <w T="1704" L="297" W="34" H="41">The</w>
+    <w T="1704" L="406" W="38" H="39">Giants</w>
+    <w T="1703" L="581" W="25" H="41">and</w>
+    <w T="1704" L="688" W="28" H="40">how</w>
+    <w T="1704" L="805" W="20" H="40">to</w>
+    <w T="1704" L="871" W="28" H="39">fight</w>
+    <w T="1704" L="1002" W="19" H="40">them.</w>
+    <w T="1788" L="297" W="35" H="41">Le</w>
+    <w T="1788" L="375" W="42" H="30">Nouveau-Testamment.</w>
+    <w T="1786" L="933" W="25" H="40">annot&#xE9;</w>
+    <w T="1785" L="1112" W="27" H="41">par</w>
+    <w T="1785" L="1211" W="43" H="41">Mgr</w>
+    <w T="1784" L="1329" W="35" H="41">Baillargeon.</w>
+    <w T="1877" L="212" W="28" H="42">42</w>
+    <w T="1877" L="299" W="33" H="40">Chaignon</w>
+    <w T="1903" L="526" W="54" H="6">&#x2014;</w>
+    <w T="1877" L="583" W="43" H="40">M&#xE9;ditations</w>
+    <w T="1876" L="882" W="20" H="39">sacerdotales.</w>
+    <w T="1878" L="1534" W="26" H="39">6</w>
+    <w T="1875" L="1581" W="28" H="40">vola.</w>
+    <w T="1984" L="297" W="278" H="8"/>
+    <w T="1959" L="576" W="35" H="41">Le</w>
+    <w T="1959" L="656" W="27" H="39">pr&#xEA;tre</w>
+    <w T="1957" L="821" W="26" H="42">&#xE0;</w>
+    <w T="1957" L="867" W="13" H="15">l'autel.</w>
+    <w T="2055" L="209" W="28" H="40">43</w>
+    <w T="2054" L="296" W="36" H="41">Recueil</w>
+    <w T="2054" L="489" W="28" H="40">de</w>
+    <w T="2052" L="561" W="22" H="41">cantiques.</w>
+    <w T="2052" L="855" W="32" H="40">Paris,</w>
+    <w T="2054" L="1011" W="21" H="38">1853.</w>
+    <w T="2137" L="294" W="34" H="41">Le</w>
+    <w T="2136" L="374" W="42" H="39">Miroir</w>
+    <w T="2136" L="543" W="28" H="40">des</w>
+    <w T="2134" L="638" W="26" H="41">&#xE2;mes.</w>
+    <w T="2134" L="824" W="34" H="41">Le</w>
+    <w T="2133" L="902" W="20" H="41">secret</w>
+    <w T="2133" L="1059" W="28" H="42">de</w>
+    <w T="2135" L="1132" W="19" H="14">s'enrichir.</w>
+    <w T="2216" L="295" W="41" H="41">Mes</w>
+    <w T="2215" L="402" W="23" H="40">conseils</w>
+    <w T="2228" L="604" W="25" H="26">aux</w>
+    <w T="2213" L="713" W="26" H="40">paroisses</w>
+    <w T="2213" L="943" W="29" H="41">desservies</w>
+    <w T="2216" L="1202" W="27" H="40">depuis</w>
+    <w T="2216" L="1377" W="19" H="41">1792.</w>
+    <w T="2293" L="292" W="34" H="41">Cantiques</w>
+    <w T="2292" L="548" W="28" H="41">de</w>
+    <w T="2292" L="622" W="43" H="40">Marseille.</w>
+    <w T="2292" L="906" W="34" H="17">Cobinet's</w>
+    <w T="2293" L="1149" W="13" H="41">instructions.</w>
+    <w T="2391" L="206" W="28" H="41">44</w>
+    <w T="2390" L="294" W="43" H="40">Manr&#xE8;se</w>
+    <w T="2388" L="509" W="25" H="41">ou</w>
+    <w T="2388" L="585" W="14" H="41">les</w>
+    <w T="2387" L="673" W="22" H="40">exercises</w>
+    <w T="2387" L="902" W="20" H="40">spirituels</w>
+    <w T="2388" L="1143" W="26" H="41">de</w>
+    <w T="2389" L="1216" W="30" H="32">St-Ignace.</w>
+    <w T="2469" L="291" W="35" H="16">L'abb&#xE9;</w>
+    <w T="2467" L="469" W="44" H="42">Maguire.</w>
+    <w T="2467" L="735" W="42" H="41">Notes</w>
+    <w T="2468" L="892" W="27" H="40">diverses,</w>
+    <w T="2468" L="1124" W="32" H="42">Paris,</w>
+    <w T="2471" L="1280" W="21" H="41">1830.</w>
+    <w T="2553" L="290" W="39" H="40">Vertot</w>
+    <w T="2576" L="447" W="55" H="7">&#x2014;</w>
+    <w T="2550" L="503" W="38" H="41">R&#xE9;volutions</w>
+    <w T="2550" L="809" W="26" H="41">de</w>
+    <w T="2549" L="882" W="31" H="43">Su&#xE8;de</w>
+    <w T="2555" L="1531" W="26" H="39">2</w>
+    <w T="2554" L="1578" W="28" H="40">vols.</w>
+    <w T="2644" L="206" W="27" H="45">4d</w>
+    <w T="2643" L="292" W="35" H="43">Cat&#xE9;chisme</w>
+    <w T="2642" L="581" W="30" H="43">de</w>
+    <w T="2642" L="656" W="36" H="42">Couturier.</w>
+    <w T="2649" L="1531" W="28" H="38">4</w>
+  </page>
+        </txtmap>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:fileSec>
+    <mets:fileGrp USE="master">
+      <mets:file ID="master.oocihm.01073.5" MIMETYPE="image/jp2">
+        <mets:FLocat LOCTYPE="URN" xlink:href="oocihm.01073.5.jp2"/>
+      </mets:file>
+      <mets:file ID="master.oocihm.01073.6" MIMETYPE="image/jp2">
+        <mets:FLocat LOCTYPE="URN" xlink:href="oocihm.01073.6.jp2"/>
+      </mets:file>
+      <mets:file ID="master.oocihm.01073.7" MIMETYPE="image/jp2">
+        <mets:FLocat LOCTYPE="URN" xlink:href="oocihm.01073.7.jp2"/>
+      </mets:file>
+      <mets:file ID="master.oocihm.01073.8" MIMETYPE="image/jp2">
+        <mets:FLocat LOCTYPE="URN" xlink:href="oocihm.01073.8.jp2"/>
+      </mets:file>
+      <mets:file ID="master.oocihm.01073.9" MIMETYPE="image/jp2">
+        <mets:FLocat LOCTYPE="URN" xlink:href="oocihm.01073.9.jp2"/>
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp USE="distribution">
+      <mets:file ID="distribution.oocihm.01073" MIMETYPE="application/pdf">
+        <mets:FLocat LOCTYPE="URN" xlink:href="oocihm.01073.pdf"/>
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp USE="canonical">
+      <mets:file ID="canonical.oocihm.01073" MIMETYPE="text/html">
+        <mets:FLocat LOCTYPE="URL" xlink:href="http://eco.canadiana.ca/view/oocihm.01073"/>
+      </mets:file>
+      <mets:file ID="canonical.oocihm.01073.5">
+        <mets:FLocat LOCTYPE="URL" xlink:href="http://eco.canadiana.ca/view/oocihm.01073.5"/>
+      </mets:file>
+      <mets:file ID="canonical.oocihm.01073.6">
+        <mets:FLocat LOCTYPE="URL" xlink:href="http://eco.canadiana.ca/view/oocihm.01073.6"/>
+      </mets:file>
+      <mets:file ID="canonical.oocihm.01073.7">
+        <mets:FLocat LOCTYPE="URL" xlink:href="http://eco.canadiana.ca/view/oocihm.01073.7"/>
+      </mets:file>
+      <mets:file ID="canonical.oocihm.01073.8">
+        <mets:FLocat LOCTYPE="URL" xlink:href="http://eco.canadiana.ca/view/oocihm.01073.8"/>
+      </mets:file>
+      <mets:file ID="canonical.oocihm.01073.9">
+        <mets:FLocat LOCTYPE="URL" xlink:href="http://eco.canadiana.ca/view/oocihm.01073.9"/>
+      </mets:file>
+    </mets:fileGrp>
+  </mets:fileSec>
+  <mets:structMap TYPE="physical">
+    <mets:div ID="oocihm.01073" TYPE="document" LABEL="Catalogue, vente &#xE0; l'encan par MM. Oct. Lemieux &amp; Cie. de la biblioth&#xE8; que de feu M. l'abb&#xE9; Campeau" DMDID="dmd.oocihm.01073">
+      <mets:fptr FILEID="canonical.oocihm.01073"/>
+      <mets:fptr FILEID="distribution.oocihm.01073"/>
+      <mets:div ID="oocihm.01073.5" TYPE="page" LABEL="Image 5" DMDID="dmd.oocihm.01073.5">
+        <mets:fptr FILEID="master.oocihm.01073.5"/>
+        <mets:fptr FILEID="canonical.oocihm.01073.5"/>
+      </mets:div>
+      <mets:div ID="oocihm.01073.6" TYPE="page" LABEL="Image 6" DMDID="dmd.oocihm.01073.6">
+        <mets:fptr FILEID="master.oocihm.01073.6"/>
+        <mets:fptr FILEID="canonical.oocihm.01073.6"/>
+      </mets:div>
+      <mets:div ID="oocihm.01073.7" TYPE="page" LABEL="Image 7" DMDID="dmd.oocihm.01073.7">
+        <mets:fptr FILEID="master.oocihm.01073.7"/>
+        <mets:fptr FILEID="canonical.oocihm.01073.7"/>
+      </mets:div>
+      <mets:div ID="oocihm.01073.8" TYPE="page" LABEL="Image 8" DMDID="dmd.oocihm.01073.8">
+        <mets:fptr FILEID="master.oocihm.01073.8"/>
+        <mets:fptr FILEID="canonical.oocihm.01073.8"/>
+      </mets:div>
+      <mets:div ID="oocihm.01073.9" TYPE="page" LABEL="Image 9" DMDID="dmd.oocihm.01073.9">
+        <mets:fptr FILEID="master.oocihm.01073.9"/>
+        <mets:fptr FILEID="canonical.oocihm.01073.9"/>
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+</mets:mets>
