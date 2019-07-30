@@ -35,14 +35,24 @@ sub content {
   }
 }
 
-sub auth_token     { return shift->header('X-Auth-Token'); }
+# expected header metadata for each request
+sub date           { return shift->header('Date'); }
+sub timestamp      { return shift->header('X-Timestamp'); }
 sub transaction_id { return shift->header('X-Trans-Id'); }
-sub bytes_used     { return int( shift->header('X-Account-Bytes-Used') ); }
 
-sub container_count {
-  return int( shift->header('X-Account-Container-Count') );
+# standard headers for objects
+sub etag          { return shift->header('ETag'); }
+sub last_modified { return shift->header('Last-Modified'); }
+
+# shortcut methods for accessing metadata
+sub account_header      { return shift->header( 'X-Account-' . shift ); }
+sub account_meta_header { return shift->header( 'X-Account-Meta-' . shift ); }
+sub container_header    { return shift->header( 'X-Container-' . shift ); }
+
+sub container_meta_header {
+  return shift->header( 'X-Container-Meta-' . shift );
 }
-
-sub object_count { return int( shift->header('X-Account-Object-Count') ); }
+sub object_header      { return shift->header( 'X-Object-' . shift ); }
+sub object_meta_header { return shift->header( 'X-Object-Meta-' . shift ); }
 
 1;

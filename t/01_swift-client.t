@@ -25,9 +25,12 @@ ok( $info->content->{swift}->{version}, 'can pull swift capabilities' );
 ok( $info->transaction_id,              'responses include transaction id' );
 
 my $account = $client->account_head;
-is( $account->container_count, 0, 'account starts with 0 containers' );
-is( $account->object_count,    0, 'account starts with 0 objects' );
-is( $account->bytes_used,      0, 'account starts with no storage use' );
+is( $account->account_header('Container-Count'),
+  0, 'account starts with 0 containers' );
+is( $account->account_header('Object-Count'),
+  0, 'account starts with 0 objects' );
+is( $account->account_header('Bytes-Used'),
+  0, 'account starts with no storage use' );
 
 is( scalar @{ $client->account_get->content },
   0, 'container list starts empty' );
