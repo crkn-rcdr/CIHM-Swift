@@ -246,11 +246,11 @@ sub _object_request {
   return $self->_request( $method, $options, $container, $object );
 }
 
-=head2 object_put($container, $object)
+=head2 object_put($container, $object, $file)
 
 L<PUT /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/?expanded=#create-or-replace-object>
 
-Creates or replaces an object within a container.
+Creates or replaces an object within a container. C<$file> can be a filehandle or a path.
 
 =cut
 
