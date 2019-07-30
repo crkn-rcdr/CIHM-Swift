@@ -174,7 +174,7 @@ sub _request {
   }
 
   if ( $options->{json} ) {
-    $url         = $url . '?format=json';
+    $headers     = [@$headers, 'Accept' => 'application/json'];
     $deserialize = 'application/json';
   }
 
