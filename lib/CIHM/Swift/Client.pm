@@ -133,7 +133,7 @@ sub _authorize {
 
 =head2 info
 
-L<GET /info|https://developer.openstack.org/api-ref/object-store/?expanded=#list-activated-capabilities>
+L<GET /info|https://developer.openstack.org/api-ref/object-store/#list-activated-capabilities>
 
 =cut
 
@@ -155,6 +155,10 @@ sub _request {
   my $url     = $self->_url( $self->_acc, $container, $object );
   my $headers = $self->_authorize;
   my $content;
+
+  if ( $options->{headers} ) {
+    $headers = [@$headers, @{ $options->{headers} }];
+  }
 
   if ( $options->{file} ) {
     my $fh;
@@ -190,9 +194,14 @@ sub _request {
   );
 }
 
+sub _metadata_headers {
+  my ( $metadata, $prefix ) = @_;
+  return [map { $prefix . $_ => $metadata->{$_} } keys %$metadata];
+}
+
 =head2 account_head
 
-L<HEAD /v1/AUTH_$user|https://developer.openstack.org/api-ref/object-store/?expanded=#show-account-metadata>
+L<HEAD /v1/AUTH_$user|https://developer.openstack.org/api-ref/object-store/#show-account-metadata>
 
 Gets information about the user's account.
 
@@ -202,7 +211,7 @@ sub account_head { return shift->_request('head'); }
 
 =head2 account_get
 
-L<GET /v1/AUTH_$user|https://developer.openstack.org/api-ref/object-store/?expanded=#show-account-details-and-list-containers>
+L<GET /v1/AUTH_$user|https://developer.openstack.org/api-ref/object-store/#show-account-details-and-list-containers>
 
 Gets a list of containers in the user's account.
 
@@ -219,7 +228,7 @@ sub _container_request {
 
 =head2 container_put($container)
 
-L<PUT /v1/AUTH_$user/$container|https://developer.openstack.org/api-ref/object-store/?expanded=#create-container>
+L<PUT /v1/AUTH_$user/$container|https://developer.openstack.org/api-ref/object-store/#create-container>
 
 Creates a container.
 
@@ -229,7 +238,7 @@ sub container_put { return shift->_container_request( 'put', {}, shift ); }
 
 =head2 container_delete($container)
 
-L<DELETE /v1/AUTH_$user/$container|https://developer.openstack.org/api-ref/object-store/?expanded=#delete-container>
+L<DELETE /v1/AUTH_$user/$container|https://developer.openstack.org/api-ref/object-store/#delete-container>
 
 Deletes a container. Will fail if the container contains any objects.
 
@@ -246,24 +255,28 @@ sub _object_request {
   return $self->_request( $method, $options, $container, $object );
 }
 
-=head2 object_put($container, $object, $file)
+=head2 object_put($container, $object, $file, $metadata)
 
-L<PUT /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/?expanded=#create-or-replace-object>
+L<PUT /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/#create-or-replace-object>
 
-Creates or replaces an object within a container. C<$file> can be a filehandle or a path.
+Creates or replaces an object within a container. C<$file> can be a filehandle
+or a path. Metadata can be added akin to C<object_post> below.
 
 =cut
 
 sub object_put {
-  my ( $self, $container, $object, $file ) = @_;
+  my ( $self, $container, $object, $file, $metadata ) = @_;
   croak 'cannot put object without filename/filehandle' unless $file;
-  return $self->_object_request( 'put', { file => $file }, $container,
-    $object );
+  my $options = { file => $file };
+  if ( $metadata && ref $metadata eq 'HASH' ) {
+    $options->{headers} = _metadata_headers( $metadata, 'X-Object-Meta-' );
+  }
+  return $self->_object_request( 'put', $options, $container, $object );
 }
 
 =head2 object_head($container, $object)
 
-L<HEAD /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/?expanded=#show-object-metadata>
+L<HEAD /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/#show-object-metadata>
 
 Shows object metadata.
 
@@ -273,7 +286,7 @@ sub object_head { return shift->_object_request( 'head', {}, shift, shift ); }
 
 =head2 object_get($container, $object)
 
-L<GET /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/?expanded=#get-object-content-and-metadata>
+L<GET /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/#get-object-content-and-metadata>
 
 Gets object content. Content will be deserialized into XML or JSON if its
 C<Content-Type> is set accordingly.
@@ -282,9 +295,26 @@ C<Content-Type> is set accordingly.
 
 sub object_get { return shift->_object_request( 'get', {}, shift, shift ); }
 
+=head2 object_post($container, $object, $metadata)
+
+L<POST /v1/AUTH_$user/$container/$object|https://docs.openstack.org/api-ref/object-store/#create-or-update-object-metadata>
+
+Posts object metadata. The C<$metadata> hashref will have its keys prefixed
+with C<X-Object-Meta-> before being added to the request's headers.
+
+=cut
+
+sub object_post {
+  my ( $self, $container, $object, $metadata ) = @_;
+  croak 'Making a POST request to an object without metadata' unless $metadata;
+  return $self->_object_request( 'post',
+    { headers->_metadata_headers( $metadata, 'X-Object-Meta-' ) },
+    $container, $object );
+}
+
 =head2 object_delete($container, $object)
 
-L<DELETE /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/?expanded=#delete-object>
+L<DELETE /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/#delete-object>
 
 Deletes an object.
 

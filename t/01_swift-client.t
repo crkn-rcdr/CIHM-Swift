@@ -41,14 +41,17 @@ is( scalar @$c, 1, 'container list has new container' );
 is( $c->[0]->{name}, 'NewContainer', 'new container initialized properly' );
 
 $client->object_put(
-  'NewContainer',                     'metadata.xml',
-  "$FindBin::Bin/files/metadata.xml", 'application/xml'
+  'NewContainer', 'metadata.xml',
+  "$FindBin::Bin/files/metadata.xml",
+  { 'TestMeta' => 'TestMetaValue' }
 );
 
 my $oi = $client->object_head( 'NewContainer', 'metadata.xml' );
 is( $oi->content_length, 43093, 'object upload succeeds' );
-my $xml = $client->object_get( 'NewContainer', 'metadata.xml' )->content;
-is( $xml->getElementsByTagName('mets:dmdSec')->size(),
+my $object = $client->object_get( 'NewContainer', 'metadata.xml' );
+is( $object->object_meta_header('TestMeta'),
+  'TestMetaValue', 'object metadata retrievable' );
+is( $object->content->getElementsByTagName('mets:dmdSec')->size(),
   6, 'XML is deserialized' );
 
 is( $client->container_delete('NewContainer')->code,
