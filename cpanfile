@@ -6,6 +6,7 @@ requires 'Furl';
 requires 'JSON';
 requires 'XML::LibXML';
 requires 'MIME::Types';
+requires 'URI';
 requires 'namespace::clean';
 
 on 'test' => sub {

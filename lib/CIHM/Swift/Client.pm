@@ -22,6 +22,7 @@ CIHM::Swift::Client - Client for accessing OpenStack Swift installations
 
 =cut
 
+use v5.20;
 use strictures 2;
 
 use Carp;
@@ -29,6 +30,7 @@ use Moo;
 use Types::Standard qw/Str Int InstanceOf/;
 use Furl;
 use MIME::Types;
+use URI;
 
 use CIHM::Swift::Client::Response;
 
@@ -92,7 +94,9 @@ has '_token_time' => (
   default => 0
 );
 
-sub _url { return join '/', shift->server, 'v1', grep( defined, @_ ); }
+sub _uri {
+  return URI->new( join '/', shift->server, 'v1', grep( defined, @_ ) );
+}
 
 sub _acc { return 'AUTH_' . shift->user; }
 
@@ -152,9 +156,13 @@ sub _request {
   my $deserialize;
   $method = uc $method;
   $options ||= {};
-  my $url     = $self->_url( $self->_acc, $container, $object );
+  my $uri     = $self->_uri( $self->_acc, $container, $object );
   my $headers = $self->_authorize;
   my $content;
+
+  if ( $options->{query} ) {
+    $uri->query_form( $options->{query} );
+  }
 
   if ( $options->{headers} ) {
     $headers = [@$headers, @{ $options->{headers} }];
@@ -185,7 +193,7 @@ sub _request {
   return CIHM::Swift::Client::Response->new( {
       basis => $self->_agent->request(
         method  => $method,
-        url     => $url,
+        url     => $uri->as_string,
         headers => $headers,
         content => $content
       ),
@@ -199,6 +207,11 @@ sub _metadata_headers {
   return [map { $prefix . $_ => $metadata->{$_} } keys %$metadata];
 }
 
+sub _list_options {
+  my ($q) = @_;
+  return { %$q{qw/limit marker end_marker prefix delimiter/} };
+}
+
 =head2 account_head
 
 L<HEAD /v1/AUTH_$user|https://developer.openstack.org/api-ref/object-store/#show-account-metadata>
@@ -209,15 +222,22 @@ Gets information about the user's account.
 
 sub account_head { return shift->_request('head'); }
 
-=head2 account_get
+=head2 account_get($query_options)
 
 L<GET /v1/AUTH_$user|https://developer.openstack.org/api-ref/object-store/#show-account-details-and-list-containers>
 
-Gets a list of containers in the user's account.
+Gets a list of containers in the user's account. C<$query_options> is an
+optional hashref for specifying list constraints, accepting these keys:
+C<limit>, C<marker>, C<end_marker>, C<prefix>, C<delimiter>. Response content
+is deserialized JSON.
 
 =cut
 
-sub account_get { return shift->_request( 'get', { json => 1 } ); }
+sub account_get {
+  my ( $self, $query_options ) = @_;
+  return $self->_request( 'get',
+    { json => 1, query => _list_options($query_options) } );
+}
 
 =head2 account_post($metadata)
 
@@ -272,16 +292,20 @@ Retrieves container information and metadata.
 
 sub container_head { return shift->_container_request( 'head', {}, shift ); }
 
-=head2 container_get($container)
+=head2 container_get($container, $query_options)
 
 L<GET /v1/AUTH_$user/$container|https://docs.openstack.org/api-ref/object-store/#show-container-details-and-list-objects>
 
-Lists objects in a container.
+Lists objects in a container. C<$query_options> is an optional hashref for
+specifying list constraints, accepting these keys: C<limit>, C<marker>,
+C<end_marker>, C<prefix>, C<delimiter>. Response content is deserialized JSON.
 
 =cut
 
 sub container_get {
-  return shift->_container_request( 'get', { json => 1 }, shift );
+  my ( $self, $container, $query_options ) = @_;
+  return $self->_container_request( 'get',
+    { json => 1, query => _list_options($query_options) }, $container );
 }
 
 =head2 container_post($container, $metadata)
