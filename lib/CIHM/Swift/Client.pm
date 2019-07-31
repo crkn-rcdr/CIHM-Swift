@@ -16,9 +16,13 @@ CIHM::Swift::Client - Client for accessing OpenStack Swift installations
     password => 'password'
   });
 
-  my $file = 'some/dir/kittens.jpg';
+  my $content = 'this is a string that will be written to a Swift object';
 
-  $swift->object_put('MyContainer', 'kittens.jpg', $file);
+  $swift->object_put('MyContainer', 'string.txt', $content);
+
+  open(my $fh, '<:raw', '/path/to/image.jpg');
+  $swift->object_put('MyContainer', 'image.jpg', $fh);
+  close $fh;
 
 =cut
 
@@ -176,21 +180,13 @@ sub _request {
     $headers = [@$headers, @{ $options->{headers} }];
   }
 
-  if ( $options->{file} ) {
-    my $fh;
-    if ( ref $options->{file} eq 'GLOB' ) {
-      $fh = $options->{file};
-    } else {
-      open( $fh, '<:raw', $options->{file} ) or
-        croak "Cannot open " . $options->{file} . ": $!";
-    }
+  if ( $options->{content} ) {
+    $content = $options->{content};
     $headers = [
       @$headers,
       'Content-Type' => $self->_mt->mimeTypeOf($object)->type ||
-        'application/octet-stream',
-      'Content-Length' => -s $fh
+        'application/octet-stream'
     ];
-    $content = $fh;
   }
 
   if ( $options->{json} ) {
@@ -356,15 +352,15 @@ sub _object_request {
 
 L<PUT /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/#create-or-replace-object>
 
-Creates or replaces an object within a container. C<$file> can be a filehandle
-or a path. Metadata can be added akin to C<object_post> below.
+Creates or replaces an object within a container. C<$content> can either be a
+string or a filehandle. Metadata can be added akin to C<object_post> below.
 
 =cut
 
 sub object_put {
-  my ( $self, $container, $object, $file, $metadata ) = @_;
-  croak 'cannot put object without filename/filehandle' unless $file;
-  my $options = { file => $file };
+  my ( $self, $container, $object, $content, $metadata ) = @_;
+  croak 'cannot put object without string/filehandle' unless $content;
+  my $options = { content => $content };
   if ( $metadata && ref $metadata eq 'HASH' ) {
     $options->{headers} = _metadata_headers( $metadata, 'X-Object-Meta-' );
   }
