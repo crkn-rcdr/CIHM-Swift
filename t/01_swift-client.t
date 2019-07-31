@@ -40,11 +40,10 @@ is( $container->container_meta_header('Custom-Field'),
 is( $container->container_meta_header('Other-Field'),
   'test2', 'post container metadata is retrievable' );
 
-$client->object_put(
-  'NewContainer', 'metadata.xml',
-  "$FindBin::Bin/files/metadata.xml",
-  { 'TestMeta' => 'TestMetaValue' }
-);
+open( my $fh, '<:raw', "$FindBin::Bin/files/metadata.xml" );
+$client->object_put( 'NewContainer', 'metadata.xml', $fh,
+  { 'TestMeta' => 'TestMetaValue' } );
+close $fh;
 
 my $oi = $client->object_head( 'NewContainer', 'metadata.xml' );
 is( $oi->content_length, 43093, 'object upload succeeds' );
