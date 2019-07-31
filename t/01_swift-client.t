@@ -1,24 +1,9 @@
 use Test::More;
-use CIHM::Swift::Client;
 use FindBin;
 
-my $ssscheme = $ENV{'SWIFTSTACK_SCHEME'}      || 'http';
-my $sshost   = $ENV{'SWIFTSTACK_HOST'}        || 'localhost';
-my $ssport   = int( $ENV{'SWIFTSTACK_PORT'} ) || 22222;
-
-if ( !$ENV{'DOCKER_TEST'} ) {
-  eval {
-    require Test::RequiresInternet;
-    Test::RequiresInternet->import( $sshost => $ssport );
-    1;
-  };
-}
-
-my $client = CIHM::Swift::Client->new(
-  server   => "$ssscheme://$sshost:$ssport",
-  user     => $ENV{'SWIFTSTACK_USER'} || 'test',
-  password => $ENV{'SWIFTSTACK_PASSWORD'} || 'test'
-);
+use lib "$FindBin::Bin/lib";
+use boilerplate qw/test_client/;
+my $client = test_client();
 
 my $info = $client->info;
 ok( $info->content->{swift}->{version}, 'can pull swift capabilities' );
