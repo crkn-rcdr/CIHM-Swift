@@ -219,6 +219,23 @@ Gets a list of containers in the user's account.
 
 sub account_get { return shift->_request( 'get', { json => 1 } ); }
 
+=head2 account_post($metadata)
+
+L<POST /v1/AUTH_$user|https://docs.openstack.org/api-ref/object-store/#create-update-or-delete-account-metadata>
+
+Posts account metadata. The C<$metadata> hashref will have its keys prefixed
+with C<X-Account-Meta-> before being added to the request's headers.
+
+=cut
+
+sub account_post {
+  my ( $self, $metadata ) = @_;
+  croak 'Making a POST request to an account without metadata'
+    unless $metadata;
+  return $self->_request( 'post',
+    { headers => _metadata_headers( $metadata, 'X-Account-Meta-' ) } );
+}
+
 sub _container_request {
   my ( $self, $method, $options, $container ) = @_;
   croak 'cannot make container request without container name'
@@ -226,15 +243,63 @@ sub _container_request {
   return $self->_request( $method, $options, $container );
 }
 
-=head2 container_put($container)
+=head2 container_put($container, $metadata)
 
 L<PUT /v1/AUTH_$user/$container|https://developer.openstack.org/api-ref/object-store/#create-container>
 
-Creates a container.
+Creates a container. Optionally takes C<$metadata> hashref, akin to
+C<container_post>.
 
 =cut
 
-sub container_put { return shift->_container_request( 'put', {}, shift ); }
+#sub container_put { return shift->_container_request( 'put', {}, shift ); }
+sub container_put {
+  my ( $self, $container, $metadata ) = @_;
+  my $options = {};
+  if ( $metadata && ref $metadata eq 'HASH' ) {
+    $options->{headers} = _metadata_headers( $metadata, 'X-Container-Meta-' );
+  }
+  return $self->_container_request( 'put', $options, $container );
+}
+
+=head2 container_head($container)
+
+L<HEAD /v1/AUTH_$user/$container|https://docs.openstack.org/api-ref/object-store/#show-container-metadata>
+
+Retrieves container information and metadata.
+
+=cut
+
+sub container_head { return shift->_container_request( 'head', {}, shift ); }
+
+=head2 container_get($container)
+
+L<GET /v1/AUTH_$user/$container|https://docs.openstack.org/api-ref/object-store/#show-container-details-and-list-objects>
+
+Lists objects in a container.
+
+=cut
+
+sub container_get {
+  return shift->_container_request( 'get', { json => 1 }, shift );
+}
+
+=head2 container_post($container, $metadata)
+
+L<POST /v1/AUTH_$user/$container|https://docs.openstack.org/api-ref/object-store/#create-update-or-delete-container-metadata>
+
+Posts container metadata. The C<$metadata> hashref will have its keys prefixed
+with C<X-Container-Meta-> before being added to the request's headers.
+
+=cut
+
+sub container_post {
+  my ( $self, $container, $metadata ) = @_;
+  croak 'Making a POST request to an object without metadata' unless $metadata;
+  return $self->_container_request( 'post',
+    { headers => _metadata_headers( $metadata, 'X-Container-Meta-' ) },
+    $container );
+}
 
 =head2 container_delete($container)
 
@@ -308,7 +373,7 @@ sub object_post {
   my ( $self, $container, $object, $metadata ) = @_;
   croak 'Making a POST request to an object without metadata' unless $metadata;
   return $self->_object_request( 'post',
-    { headers->_metadata_headers( $metadata, 'X-Object-Meta-' ) },
+    { headers => _metadata_headers( $metadata, 'X-Object-Meta-' ) },
     $container, $object );
 }
 
