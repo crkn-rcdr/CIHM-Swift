@@ -53,8 +53,12 @@ has 'server' => (
 Authentication information for accessing Swift. Currently, we only support v1
 of the authentication API.
 
-We also make the assumption that the user will only be accessing containers
-and objects within the user's account.
+=head2 account
+
+Instances of C<CIHM::Swift::Client> operate on a single Swift account. By
+default, the account name is set to the
+L<SwiftStack|https://www.swiftstack.com/> default of C<AUTH_$user>. Pass
+C<account> as an option to C<< CIHM::Swift::Client->new >>.
 
 =cut
 
@@ -68,6 +72,12 @@ has 'password' => (
   is       => 'ro',
   isa      => Str,
   required => 1
+);
+
+has 'account' => (
+  is      => 'lazy',
+  isa     => Str,
+  default => sub { return 'AUTH_' . shift->user; }
 );
 
 has '_agent' => (
@@ -97,8 +107,6 @@ has '_token_time' => (
 sub _uri {
   return URI->new( join '/', shift->server, 'v1', grep( defined, @_ ) );
 }
-
-sub _acc { return 'AUTH_' . shift->user; }
 
 sub _authorize {
   my ($self) = @_;
@@ -156,7 +164,7 @@ sub _request {
   my $deserialize;
   $method = uc $method;
   $options ||= {};
-  my $uri     = $self->_uri( $self->_acc, $container, $object );
+  my $uri     = $self->_uri( $self->account, $container, $object );
   my $headers = $self->_authorize;
   my $content;
 
