@@ -13,7 +13,7 @@ has '_fr' => (
   is       => 'ro',
   isa      => InstanceOf ['Furl::Response'],
   init_arg => 'basis',
-  handles  => [qw/code message header content_type content_length/]
+  handles  => [qw/code message header headers content_type content_length/]
 );
 
 has '_deserialize' => (
