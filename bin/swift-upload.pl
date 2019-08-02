@@ -7,11 +7,11 @@ use Getopt::Long;
 use CIHM::Swift::Client;
 use DateTime;
 
-use Data::Dumper;
-
 my %options;
 
-GetOptions (\%options, 'server:s', 'user:s','password:s','account:s');
+GetOptions (\%options, 'server:s', 'user:s','password:s','account:s','verbose');
+my $verbose = $options{'verbose'};
+delete $options{verbose};
 
 if (scalar(@ARGV) != 3) {
 
@@ -32,14 +32,14 @@ if ($swift) {
 	my $dt = DateTime->from_epoch(epoch => $mtime);
         $filedate = $dt->datetime. "Z";
     }
-    print "File date: $filedate\n";
-    $swift->object_put($container,$object, $fh, { filedate => $filedate});
+    print "File modified date: $filedate\n" if ($verbose);
+    $swift->object_put($container,$object, $fh, { 'File-Modified' => $filedate});
     close $fh;
 
-
-    # Separate request to confirm headers   
-    print "Headers from stored object:\n". $swift->object_head($container,$object)->_fr->headers->as_string()."\n";
-    
+    if ($verbose) {
+	# Separate request to confirm headers   
+	print "Headers from stored object:\n". $swift->object_head($container,$object)->headers->as_string()."\n";
+    }
 } else {
     print STDERR "No CIHM::Swift::Client()\n";
 }
