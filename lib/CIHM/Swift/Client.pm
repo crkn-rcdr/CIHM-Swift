@@ -26,7 +26,6 @@ CIHM::Swift::Client - Client for accessing OpenStack Swift installations
 
 =cut
 
-use v5.20;
 use strictures 2;
 
 use Carp;
@@ -213,7 +212,8 @@ sub _metadata_headers {
 
 sub _list_options {
   my ($q) = @_;
-  return { %$q{qw/limit marker end_marker prefix delimiter/} };
+  return { map { $q->{$_} ? ( $_, $q->{$_} ) : () }
+      qw/limit marker end_marker prefix delimiter/ };
 }
 
 =head2 account_head
@@ -323,7 +323,8 @@ with C<X-Container-Meta-> before being added to the request's headers.
 
 sub container_post {
   my ( $self, $container, $metadata ) = @_;
-  croak 'Making a POST request to an object without metadata' unless $metadata;
+  croak 'Making a POST request to an object without metadata'
+    unless $metadata;
   return $self->_container_request( 'post',
     { headers => _metadata_headers( $metadata, 'X-Container-Meta-' ) },
     $container );
@@ -343,8 +344,9 @@ sub container_delete {
 
 sub _object_request {
   my ( $self, $method, $options, $container, $object ) = @_;
-  croak 'cannot make object request without container name' unless $container;
-  croak 'cannot make object request without object name'    unless $object;
+  croak 'cannot make object request without container name'
+    unless $container;
+  croak 'cannot make object request without object name' unless $object;
   return $self->_request( $method, $options, $container, $object );
 }
 
@@ -375,7 +377,9 @@ Shows object metadata.
 
 =cut
 
-sub object_head { return shift->_object_request( 'head', {}, shift, shift ); }
+sub object_head {
+  return shift->_object_request( 'head', {}, shift, shift );
+}
 
 =head2 object_get($container, $object)
 
@@ -399,7 +403,8 @@ with C<X-Object-Meta-> before being added to the request's headers.
 
 sub object_post {
   my ( $self, $container, $object, $metadata ) = @_;
-  croak 'Making a POST request to an object without metadata' unless $metadata;
+  croak 'Making a POST request to an object without metadata'
+    unless $metadata;
   return $self->_object_request( 'post',
     { headers => _metadata_headers( $metadata, 'X-Object-Meta-' ) },
     $container, $object );
