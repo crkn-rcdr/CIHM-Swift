@@ -10,7 +10,8 @@ $client->container_put('test');
 my $json = encode_json( { property => 'value' } );
 $client->object_put( 'test', 'test.json', $json );
 
-my $response_json = $client->object_get( 'test', 'test.json' )->content;
+my $response_json = $client->object_get( 'test', 'test.json',
+  { deserialize => 'application/json' } )->content;
 is( $response_json->{property}, 'value', 'direct PUT of a JSON string' );
 
 $client->object_delete( 'test', 'test.json' );

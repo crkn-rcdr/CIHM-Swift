@@ -164,12 +164,12 @@ sub info {
 
 sub _request {
   my ( $self, $method, $options, $container, $object ) = @_;
-  my $deserialize;
   $method = uc $method;
   $options ||= {};
   my $uri     = $self->_uri( $self->account, $container, $object );
   my $headers = $self->_authorize;
   my $content;
+  my $deserialize = $options->{deserialize};
 
   if ( $options->{query} ) {
     $uri->query_form( $options->{query} );
@@ -381,16 +381,20 @@ sub object_head {
   return shift->_object_request( 'head', {}, shift, shift );
 }
 
-=head2 object_get($container, $object)
+=head2 object_get($container, $object, $options)
 
 L<GET /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/object-store/#get-object-content-and-metadata>
 
-Gets object content. Content will be deserialized into XML or JSON if its
-C<Content-Type> is set accordingly.
+Gets object content. Content can be deserialized if C<deserialize> is set to
+either C<application/json> or C<application/xml> in C<$options>.
 
 =cut
 
-sub object_get { return shift->_object_request( 'get', {}, shift, shift ); }
+sub object_get {
+  my ( $self, $container, $object, $options ) = @_;
+  $options = { deserialize => $options->{deserialize} };
+  return $self->_object_request( 'get', $options, $container, $object );
+}
 
 =head2 object_post($container, $object, $metadata)
 

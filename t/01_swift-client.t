@@ -47,7 +47,8 @@ close $fh;
 
 my $oi = $client->object_head( 'NewContainer', 'metadata.xml' );
 is( $oi->content_length, 43093, 'object upload succeeds' );
-my $object = $client->object_get( 'NewContainer', 'metadata.xml' );
+my $object = $client->object_get( 'NewContainer', 'metadata.xml',
+  { deserialize => 'application/xml' } );
 is( $object->object_meta_header('TestMeta'),
   'TestMetaValue', 'put object metadata retrievable' );
 is( $object->content->getElementsByTagName('mets:dmdSec')->size(),
@@ -67,6 +68,6 @@ is( $client->container_delete('NewContainer')->code,
 $client->object_delete( 'NewContainer', 'metadata.xml' );
 $client->container_delete('NewContainer');
 $c = $client->account_get->content;
-is( scalar @$c, 0, 'container list is empty after delete' ) || diag explain $c;
+is( scalar @$c, 0, 'container list is empty after delete' );
 
 done_testing;

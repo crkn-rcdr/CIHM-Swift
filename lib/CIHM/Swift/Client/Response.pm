@@ -24,7 +24,7 @@ has '_deserialize' => (
 
 sub content {
   my ($self) = @_;
-  my $ds = $self->_deserialize || $self->content_type;
+  my $ds = $self->_deserialize || '';
   if ( $ds eq 'application/json' ) {
     return
       length $self->_fr->content > 0 ? decode_json $self->_fr->content : [];
