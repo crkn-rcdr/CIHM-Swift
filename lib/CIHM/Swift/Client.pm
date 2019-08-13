@@ -11,9 +11,10 @@ CIHM::Swift::Client - Client for accessing OpenStack Swift installations
   use CIHM::Swift::Client;
 
   my $swift = CIHM::Swift::Client->new({
-    server   => 'https://swift.server',
-    user     => 'user'
-    password => 'password'
+    server       => 'https://swift.server',
+    user         => 'user',
+    password     => 'password',
+    furl_options => { timeout => 60 }
   });
 
   my $content = 'this is a string that will be written to a Swift object';
@@ -30,7 +31,7 @@ use strictures 2;
 
 use Carp;
 use Moo;
-use Types::Standard qw/Str Int InstanceOf/;
+use Types::Standard qw/Str Int HashRef InstanceOf/;
 use Furl;
 use MIME::Types;
 use URI;
@@ -63,6 +64,12 @@ default, the account name is set to the
 L<SwiftStack|https://www.swiftstack.com/> default of C<AUTH_$user>. Pass
 C<account> as an option to C<< CIHM::Swift::Client->new >>.
 
+=head2 furl_options
+
+An optional hashref containing options to be passed to L<Furl>, the HTTP agent
+used by C<CIHM::Swift::Client>. You may be interested in setting C<timeout>
+to something higher than 10.
+
 =cut
 
 has 'user' => (
@@ -83,10 +90,16 @@ has 'account' => (
   default => sub { return 'AUTH_' . shift->user; }
 );
 
-has '_agent' => (
+has 'furl_options' => (
   is      => 'ro',
+  isa     => HashRef,
+  default => sub { return {}; }
+);
+
+has '_agent' => (
+  is      => 'lazy',
   isa     => InstanceOf ['Furl'],
-  default => sub { return Furl->new(); },
+  default => sub { return Furl->new( %{ shift->furl_options } ); },
 );
 
 has '_mt' => (

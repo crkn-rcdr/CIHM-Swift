@@ -19,9 +19,10 @@ sub test_client {
   }
 
   return CIHM::Swift::Client->new(
-    server   => "$ssscheme://$sshost:$ssport",
-    user     => $ENV{'SWIFTSTACK_USER'} || 'test',
-    password => $ENV{'SWIFTSTACK_PASSWORD'} || 'test'
+    server       => "$ssscheme://$sshost:$ssport",
+    user         => $ENV{'SWIFTSTACK_USER'} || 'test',
+    password     => $ENV{'SWIFTSTACK_PASSWORD'} || 'test',
+    furl_options => { timeout => 60 }
   );
 }
 
