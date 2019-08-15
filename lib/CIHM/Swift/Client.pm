@@ -194,12 +194,10 @@ sub _request {
   }
 
   if ( $options->{content} ) {
+    my $mime     = $self->_mt->mimeTypeOf($object);
+    my $mimeType = $mime ? $mime->type : 'application/octet-stream';
     $content = $options->{content};
-    $headers = [
-      @$headers,
-      'Content-Type' => $self->_mt->mimeTypeOf($object)->type ||
-        'application/octet-stream'
-    ];
+    $headers = [@$headers, 'Content-Type' => $mimeType];
   }
 
   if ( $options->{json} ) {
