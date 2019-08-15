@@ -114,12 +114,6 @@ has '_token' => (
   default => ''
 );
 
-has '_token_time' => (
-  is      => 'rwp',
-  isa     => Int,
-  default => 0
-);
-
 sub _uri {
   return URI->new( join '/', shift->server, 'v1', grep( defined, @_ ) );
 }
@@ -127,7 +121,7 @@ sub _uri {
 sub _authorize {
   my ($self) = @_;
 
-  unless ( time - $self->_token_time < 3600 ) {
+  if ( $self->_token eq '' ) {
     my $response;
 
     # Swiftstack might not be initialized yet (especially in testing mode)
@@ -148,7 +142,6 @@ sub _authorize {
 
     if ( $code < 300 ) {
       $self->_set__token( $response->header('X-Auth-Token') );
-      $self->_set__token_time(time);
     } else {
       croak "Swiftstack authorization failure: $code";
     }
@@ -167,12 +160,20 @@ L<GET /info|https://developer.openstack.org/api-ref/object-store/#list-activated
 
 sub info {
   my ($self) = @_;
-  return CIHM::Swift::Client::Response->new( {
+
+  my $response = CIHM::Swift::Client::Response->new( {
       basis =>
         $self->_agent->get( $self->server . '/info', $self->_authorize ),
       deserialize => 'application/json'
     }
   );
+
+  if ( $response->code == 401 ) {
+    $self->_set__token('');
+    return $self->info();
+  }
+
+  return $response;
 }
 
 sub _request {
@@ -206,7 +207,7 @@ sub _request {
     $deserialize = 'application/json';
   }
 
-  return CIHM::Swift::Client::Response->new( {
+  my $response = CIHM::Swift::Client::Response->new( {
       basis => $self->_agent->request(
         method  => $method,
         url     => $uri->as_string,
@@ -216,6 +217,13 @@ sub _request {
       deserialize => $deserialize
     }
   );
+
+  if ( $response->code == 401 ) {
+    $self->_set__token('');
+    return $self->_request( $method, $options, $container, $object );
+  }
+
+  return $response;
 }
 
 sub _metadata_headers {
