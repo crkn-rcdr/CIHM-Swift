@@ -47,9 +47,9 @@ URL of the Swift installation. e.g. 'https://swift.server'
 =cut
 
 has 'server' => (
-  is       => 'ro',
-  isa      => Str,
-  required => 1
+    is       => 'ro',
+    isa      => Str,
+    required => 1
 );
 
 =head2 user, password
@@ -73,81 +73,82 @@ to something higher than 10.
 =cut
 
 has 'user' => (
-  is       => 'ro',
-  isa      => Str,
-  required => 1
+    is       => 'ro',
+    isa      => Str,
+    required => 1
 );
 
 has 'password' => (
-  is       => 'ro',
-  isa      => Str,
-  required => 1
+    is       => 'ro',
+    isa      => Str,
+    required => 1
 );
 
 has 'account' => (
-  is      => 'lazy',
-  isa     => Str,
-  default => sub { return 'AUTH_' . shift->user; }
+    is      => 'lazy',
+    isa     => Str,
+    default => sub { return 'AUTH_' . shift->user; }
 );
 
 has 'furl_options' => (
-  is      => 'ro',
-  isa     => HashRef,
-  default => sub { return {}; }
+    is      => 'ro',
+    isa     => HashRef,
+    default => sub { return {}; }
 );
 
 has '_agent' => (
-  is      => 'lazy',
-  isa     => InstanceOf ['Furl'],
-  default => sub { return Furl->new( %{ shift->furl_options } ); },
+    is      => 'lazy',
+    isa     => InstanceOf ['Furl'],
+    default => sub { return Furl->new( %{ shift->furl_options } ); },
 );
 
 has '_mt' => (
-  is      => 'ro',
-  isa     => InstanceOf ['MIME::Types'],
-  default => sub { return MIME::Types->new; }
+    is      => 'ro',
+    isa     => InstanceOf ['MIME::Types'],
+    default => sub { return MIME::Types->new; }
 );
 
 has '_token' => (
-  is      => 'rwp',
-  isa     => Str,
-  default => ''
+    is      => 'rwp',
+    isa     => Str,
+    default => ''
 );
 
 sub _uri {
-  return URI->new( join '/', shift->server, 'v1', grep( defined, @_ ) );
+    return URI->new( join '/', shift->server, 'v1', grep( defined, @_ ) );
 }
 
 sub _authorize {
-  my ($self) = @_;
+    my ($self) = @_;
 
-  if ( $self->_token eq '' ) {
-    my $response;
+    if ( $self->_token eq '' ) {
+        my $response;
 
-    # Swiftstack might not be initialized yet (especially in testing mode)
-    my $code = 500;
-    while ( $code >= 500 ) {
-      $response = $self->_agent->get(
-        join( '/', $self->server, 'auth', 'v1.0' ),
-        [
-          'X-Auth-User' => $self->user,
-          'X-Auth-Key'  => $self->password
-        ]
-      );
-      $code = $response->code;
-      if ( $code >= 500 ) {
-        sleep(1);
-      }
+        # Swiftstack might not be initialized yet (especially in testing mode)
+        my $code = 500;
+        while ( $code >= 500 ) {
+            $response = $self->_agent->get(
+                join( '/', $self->server, 'auth', 'v1.0' ),
+                [
+                    'X-Auth-User' => $self->user,
+                    'X-Auth-Key'  => $self->password
+                ]
+            );
+            $code = $response->code;
+            if ( $code >= 500 ) {
+                sleep(1);
+            }
+        }
+
+        if ( $code < 300 ) {
+            $self->_set__token( $response->header('X-Auth-Token') );
+        }
+        else {
+            croak "Swiftstack authorization failure: $code";
+        }
     }
 
-    if ( $code < 300 ) {
-      $self->_set__token( $response->header('X-Auth-Token') );
-    } else {
-      croak "Swiftstack authorization failure: $code";
-    }
-  }
-
-  return ['X-Auth-Token' => $self->_token];
+    return [ 'X-Auth-Token' => $self->_token ];
 }
 
 =head1 METHODS
@@ -159,80 +160,82 @@ L<GET /info|https://developer.openstack.org/api-ref/object-store/#list-activated
 =cut
 
 sub info {
-  my ($self) = @_;
+    my ($self) = @_;
 
-  my $response = CIHM::Swift::Client::Response->new( {
-      basis =>
-        $self->_agent->get( $self->server . '/info', $self->_authorize ),
-      deserialize => 'application/json'
+    my $response = CIHM::Swift::Client::Response->new(
+        {
+            basis =>
+              $self->_agent->get( $self->server . '/info', $self->_authorize ),
+            deserialize => 'application/json'
+        }
+    );
+
+    if ( $response->code == 401 ) {
+        $self->_set__token('');
+        return $self->info();
     }
-  );
 
-  if ( $response->code == 401 ) {
-    $self->_set__token('');
-    return $self->info();
-  }
-
-  return $response;
+    return $response;
 }
 
 sub _request {
-  my ( $self, $method, $options, $container, $object ) = @_;
-  $method = uc $method;
-  $options ||= {};
-  my $uri     = $self->_uri( $self->account, $container, $object );
-  my $headers = $self->_authorize;
-  my $content;
-  my $deserialize = $options->{deserialize};
+    my ( $self, $method, $options, $container, $object ) = @_;
+    $method = uc $method;
+    $options ||= {};
+    my $uri = $self->_uri( $self->account, $container, $object );
+    my $headers = $self->_authorize;
+    my $content;
+    my $deserialize = $options->{deserialize};
 
-  if ( $options->{query} ) {
-    $uri->query_form( $options->{query} );
-  }
-
-  if ( $options->{headers} ) {
-    $headers = [@$headers, @{ $options->{headers} }];
-  }
-
-  if ( $options->{content} ) {
-    my $mime     = $self->_mt->mimeTypeOf($object);
-    my $mimeType = $mime ? $mime->type : 'application/octet-stream';
-    $content = $options->{content};
-    $headers = [@$headers, 'Content-Type' => $mimeType];
-  }
-
-  if ( $options->{json} ) {
-    $headers     = [@$headers, 'Accept' => 'application/json'];
-    $deserialize = 'application/json';
-  }
-
-  my $response = CIHM::Swift::Client::Response->new( {
-      basis => $self->_agent->request(
-        method  => $method,
-        url     => $uri->as_string,
-        headers => $headers,
-        content => $content
-      ),
-      deserialize => $deserialize
+    if ( $options->{query} ) {
+        $uri->query_form( $options->{query} );
     }
-  );
 
-  if ( $response->code == 401 ) {
-    $self->_set__token('');
-    return $self->_request( $method, $options, $container, $object );
-  }
+    if ( $options->{headers} ) {
+        $headers = [ @$headers, @{ $options->{headers} } ];
+    }
 
-  return $response;
+    if ( $options->{content} ) {
+        my $mime = $self->_mt->mimeTypeOf($object);
+        my $mimeType = $mime ? $mime->type : 'application/octet-stream';
+        $content = $options->{content};
+        $headers = [ @$headers, 'Content-Type' => $mimeType ];
+    }
+
+    if ( $options->{json} ) {
+        $headers = [ @$headers, 'Accept' => 'application/json' ];
+        $deserialize = 'application/json';
+    }
+
+    my $response = CIHM::Swift::Client::Response->new(
+        {
+            basis => $self->_agent->request(
+                method  => $method,
+                url     => $uri->as_string,
+                headers => $headers,
+                content => $content
+            ),
+            deserialize => $deserialize
+        }
+    );
+
+    if ( $response->code == 401 ) {
+        $self->_set__token('');
+        return $self->_request( $method, $options, $container, $object );
+    }
+
+    return $response;
 }
 
 sub _metadata_headers {
-  my ( $metadata, $prefix ) = @_;
-  return [map { $prefix . $_ => $metadata->{$_} } keys %$metadata];
+    my ( $metadata, $prefix ) = @_;
+    return [ map { $prefix . $_ => $metadata->{$_} } keys %$metadata ];
 }
 
 sub _list_options {
-  my ($q) = @_;
-  return { map { $q->{$_} ? ( $_, $q->{$_} ) : () }
-      qw/limit marker end_marker prefix delimiter/ };
+    my ($q) = @_;
+    return { map { $q->{$_} ? ( $_, $q->{$_} ) : () }
+          qw/limit marker end_marker prefix delimiter/ };
 }
 
 =head2 account_head
@@ -257,9 +260,9 @@ is deserialized JSON.
 =cut
 
 sub account_get {
-  my ( $self, $query_options ) = @_;
-  return $self->_request( 'get',
-    { json => 1, query => _list_options($query_options) } );
+    my ( $self, $query_options ) = @_;
+    return $self->_request( 'get',
+        { json => 1, query => _list_options($query_options) } );
 }
 
 =head2 account_post($metadata)
@@ -272,18 +275,18 @@ with C<X-Account-Meta-> before being added to the request's headers.
 =cut
 
 sub account_post {
-  my ( $self, $metadata ) = @_;
-  croak 'Making a POST request to an account without metadata'
-    unless $metadata;
-  return $self->_request( 'post',
-    { headers => _metadata_headers( $metadata, 'X-Account-Meta-' ) } );
+    my ( $self, $metadata ) = @_;
+    croak 'Making a POST request to an account without metadata'
+      unless $metadata;
+    return $self->_request( 'post',
+        { headers => _metadata_headers( $metadata, 'X-Account-Meta-' ) } );
 }
 
 sub _container_request {
-  my ( $self, $method, $options, $container ) = @_;
-  croak 'cannot make container request without container name'
-    unless $container;
-  return $self->_request( $method, $options, $container );
+    my ( $self, $method, $options, $container ) = @_;
+    croak 'cannot make container request without container name'
+      unless $container;
+    return $self->_request( $method, $options, $container );
 }
 
 =head2 container_put($container, $metadata)
@@ -297,12 +300,13 @@ C<container_post>.
 
 #sub container_put { return shift->_container_request( 'put', {}, shift ); }
 sub container_put {
-  my ( $self, $container, $metadata ) = @_;
-  my $options = {};
-  if ( $metadata && ref $metadata eq 'HASH' ) {
-    $options->{headers} = _metadata_headers( $metadata, 'X-Container-Meta-' );
-  }
-  return $self->_container_request( 'put', $options, $container );
+    my ( $self, $container, $metadata ) = @_;
+    my $options = {};
+    if ( $metadata && ref $metadata eq 'HASH' ) {
+        $options->{headers} =
+          _metadata_headers( $metadata, 'X-Container-Meta-' );
+    }
+    return $self->_container_request( 'put', $options, $container );
 }
 
 =head2 container_head($container)
@@ -326,9 +330,9 @@ C<end_marker>, C<prefix>, C<delimiter>. Response content is deserialized JSON.
 =cut
 
 sub container_get {
-  my ( $self, $container, $query_options ) = @_;
-  return $self->_container_request( 'get',
-    { json => 1, query => _list_options($query_options) }, $container );
+    my ( $self, $container, $query_options ) = @_;
+    return $self->_container_request( 'get',
+        { json => 1, query => _list_options($query_options) }, $container );
 }
 
 =head2 container_post($container, $metadata)
@@ -341,12 +345,12 @@ with C<X-Container-Meta-> before being added to the request's headers.
 =cut
 
 sub container_post {
-  my ( $self, $container, $metadata ) = @_;
-  croak 'Making a POST request to an object without metadata'
-    unless $metadata;
-  return $self->_container_request( 'post',
-    { headers => _metadata_headers( $metadata, 'X-Container-Meta-' ) },
-    $container );
+    my ( $self, $container, $metadata ) = @_;
+    croak 'Making a POST request to an object without metadata'
+      unless $metadata;
+    return $self->_container_request( 'post',
+        { headers => _metadata_headers( $metadata, 'X-Container-Meta-' ) },
+        $container );
 }
 
 =head2 container_delete($container)
@@ -358,15 +362,15 @@ Deletes a container. Will fail if the container contains any objects.
 =cut
 
 sub container_delete {
-  return shift->_container_request( 'delete', {}, shift );
+    return shift->_container_request( 'delete', {}, shift );
 }
 
 sub _object_request {
-  my ( $self, $method, $options, $container, $object ) = @_;
-  croak 'cannot make object request without container name'
-    unless $container;
-  croak 'cannot make object request without object name' unless $object;
-  return $self->_request( $method, $options, $container, $object );
+    my ( $self, $method, $options, $container, $object ) = @_;
+    croak 'cannot make object request without container name'
+      unless $container;
+    croak 'cannot make object request without object name' unless $object;
+    return $self->_request( $method, $options, $container, $object );
 }
 
 =head2 object_put($container, $object, $file, $metadata)
@@ -379,13 +383,13 @@ string or a filehandle. Metadata can be added akin to C<object_post> below.
 =cut
 
 sub object_put {
-  my ( $self, $container, $object, $content, $metadata ) = @_;
-  croak 'cannot put object without string/filehandle' unless $content;
-  my $options = { content => $content };
-  if ( $metadata && ref $metadata eq 'HASH' ) {
-    $options->{headers} = _metadata_headers( $metadata, 'X-Object-Meta-' );
-  }
-  return $self->_object_request( 'put', $options, $container, $object );
+    my ( $self, $container, $object, $content, $metadata ) = @_;
+    croak 'cannot put object without string/filehandle' unless $content;
+    my $options = { content => $content };
+    if ( $metadata && ref $metadata eq 'HASH' ) {
+        $options->{headers} = _metadata_headers( $metadata, 'X-Object-Meta-' );
+    }
+    return $self->_object_request( 'put', $options, $container, $object );
 }
 
 =head2 object_head($container, $object)
@@ -397,7 +401,7 @@ Shows object metadata.
 =cut
 
 sub object_head {
-  return shift->_object_request( 'head', {}, shift, shift );
+    return shift->_object_request( 'head', {}, shift, shift );
 }
 
 =head2 object_get($container, $object, $options)
@@ -410,9 +414,9 @@ either C<application/json> or C<application/xml> in C<$options>.
 =cut
 
 sub object_get {
-  my ( $self, $container, $object, $options ) = @_;
-  $options = { deserialize => $options->{deserialize} };
-  return $self->_object_request( 'get', $options, $container, $object );
+    my ( $self, $container, $object, $options ) = @_;
+    $options = { deserialize => $options->{deserialize} };
+    return $self->_object_request( 'get', $options, $container, $object );
 }
 
 =head2 object_post($container, $object, $metadata)
@@ -425,12 +429,12 @@ with C<X-Object-Meta-> before being added to the request's headers.
 =cut
 
 sub object_post {
-  my ( $self, $container, $object, $metadata ) = @_;
-  croak 'Making a POST request to an object without metadata'
-    unless $metadata;
-  return $self->_object_request( 'post',
-    { headers => _metadata_headers( $metadata, 'X-Object-Meta-' ) },
-    $container, $object );
+    my ( $self, $container, $object, $metadata ) = @_;
+    croak 'Making a POST request to an object without metadata'
+      unless $metadata;
+    return $self->_object_request( 'post',
+        { headers => _metadata_headers( $metadata, 'X-Object-Meta-' ) },
+        $container, $object );
 }
 
 =head2 object_delete($container, $object)
@@ -442,7 +446,27 @@ Deletes an object.
 =cut
 
 sub object_delete {
-  return shift->_object_request( 'delete', {}, shift, shift );
+    return shift->_object_request( 'delete', {}, shift, shift );
+}
+
+=head2 object_copy($sourcecontainer, $sourceobject, $destinationcontainer, $destinationobject)
+
+L<COPY /v1/AUTH_$user/$container/$object|https://docs.openstack.org/api-ref/object-store/#copy-object>
+
+Copies an object to another location.
+
+=cut
+
+sub object_copy {
+    my ( $self, $sourcecontainer, $sourceobject, $destinationcontainer,
+        $destinationobject )
+      = @_;
+
+    my $dest = join '/', $destinationcontainer, $destinationobject;
+
+    return $self->_object_request( 'copy',
+        { headers => [ 'Destination' => $dest ] },
+        $sourcecontainer, $destcontainer );
 }
 
 1;
