@@ -466,7 +466,7 @@ sub object_copy {
 
     return $self->_object_request( 'copy',
         { headers => [ 'Destination' => $dest ] },
-        $sourcecontainer, $destcontainer );
+        $sourcecontainer, $sourceobject );
 }
 
 1;
