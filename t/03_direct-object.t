@@ -14,6 +14,15 @@ my $response_json = $client->object_get( 'test', 'test.json',
   { deserialize => 'application/json' } )->content;
 is( $response_json->{property}, 'value', 'direct PUT of a JSON string' );
 
+$client->container_put('test1');
+$client->object_copy( 'test', 'test.json', 'test1', 'test123.json' );
+
+$response_json = $client->object_get( 'test1', 'test123.json',
+  { deserialize => 'application/json' } )->content;
+is( $response_json->{property}, 'value', 'Copy of object' );
+
+$client->object_delete( 'test1', 'test123.json' );
+$client->container_delete('test1');
 $client->object_delete( 'test', 'test.json' );
 $client->container_delete('test');
 done_testing;
