@@ -210,10 +210,11 @@ sub _request {
     my $response = CIHM::Swift::Client::Response->new(
         {
             basis => $self->_agent->request(
-                method  => $method,
-                url     => $uri->as_string,
-                headers => $headers,
-                content => $content
+                method     => $method,
+                url        => $uri->as_string,
+                headers    => $headers,
+                content    => $content,
+                write_file => $options->{write_file}
             ),
             deserialize => $deserialize
         }
@@ -411,11 +412,16 @@ L<GET /v1/AUTH_$user/$container/$object|https://developer.openstack.org/api-ref/
 Gets object content. Content can be deserialized if C<deserialize> is set to
 either C<application/json> or C<application/xml> in C<$options>.
 
+Content sent to a file if C<write_file> is a filehandle in C<$options>.
+
 =cut
 
 sub object_get {
     my ( $self, $container, $object, $options ) = @_;
-    $options = { deserialize => $options->{deserialize} };
+    $options = {
+        deserialize => $options->{deserialize},
+        write_file  => $options->{write_file}
+    };
     return $self->_object_request( 'get', $options, $container, $object );
 }
 
