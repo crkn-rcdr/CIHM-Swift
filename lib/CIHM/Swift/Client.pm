@@ -136,6 +136,7 @@ sub _authorize {
             );
             $code = $response->code;
             if ( $code >= 500 ) {
+                warn "Error during Swift authorization: code=$code  message=".$response->message."\n";
                 sleep(1);
             }
         }
